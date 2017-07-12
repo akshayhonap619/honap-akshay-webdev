@@ -2,26 +2,50 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="css/style.css" rel="stylesheet"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Register</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet"> </link>
 </head>
 <body>
-    <div class="container">
-        <h1>Register</h1>
-        <input type="text"
-               class="form-control"
-               placeholder="username"/>
-        <input type="password"
-               class="form-control"
-               placeholder="password"/>
-        <input type="password"
-               class="form-control"
-               placeholder="very password"/>
-        <a class="btn btn-primary btn-block"
-           href="profile.html">Register</a>
-        <a class="btn btn-danger  btn-block"
-           href="login.html">Cancel</a>
+<div class="container-fluid">
+    <h1>Register</h1>
+
+    <div class="form-group">
+        <input class="form-control"
+                type="text"
+               name="username"
+               id="username"
+               placeholder="Username"/>
+
+        <input class="form-control"
+                type="password"
+               name="password"
+               id="passsword"
+               placeholder="Password"/>
+
+        <input class="form-control"
+                type="password"
+               name="verifypassword"
+               id="verifypasssword"
+               placeholder="Verify Password"/>
+
+        <input type="button"
+               name="registerbutton"
+               value="Register"
+               class="form-control btn btn-block btn-primary"
+               id="registerbutton"/>
+
+        <input type="button"
+               name="cancelbutton"
+               value="Cancel"
+               class="form-control btn btn-block btn-danger"
+               id="cancelbutton"/>
+
     </div>
+
+</div>
+
+
 </body>
 </html>
