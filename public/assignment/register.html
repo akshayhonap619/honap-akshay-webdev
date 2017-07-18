@@ -8,10 +8,10 @@
     <link href="css/style.css" rel="stylesheet"> </link>
 </head>
 <body>
-<div class="container-fluid">
+<div class="container-fluid my-header">
     <h1>Register</h1>
 
-    <div class="form-group">
+    <div class="form-group my-header">
         <input class="form-control"
                 type="text"
                name="username"
@@ -30,17 +30,15 @@
                id="verifypasssword"
                placeholder="Verify Password"/>
 
-        <input type="button"
-               name="registerbutton"
-               value="Register"
-               class="form-control btn btn-block btn-primary"
-               id="registerbutton"/>
+        <a class="btn btn-block btn-primary"
+           href="profile.html"
+           role="button">Register</a>
 
-        <input type="button"
-               name="cancelbutton"
-               value="Cancel"
-               class="form-control btn btn-block btn-danger"
-               id="cancelbutton"/>
+
+        <a class="btn btn-block btn-danger"
+           href="login.html"
+           role="button">Cancel</a>
+
 
     </div>
 

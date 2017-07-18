@@ -1,10 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=width.device, initial-scale=1">
+        <title>Widget Heading</title>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet"> </link>
+    </head>
 <body>
-$END$
+
+<!--Header -->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid my-container-header">
+        <div class="navbar-header">
+
+            <p class="navbar-text pull-left">
+                <a href="widget-list.html" class="navbar-link">
+          <span class="glyphicon glyphicon-chevron-left pull-left">
+          </span>
+                </a>
+            </p>
+
+            <a class="navbar-brand m" href="#">
+                Widget Edit
+            </a>
+            <p class="navbar-text pull-right">
+                <a href="widget-list.html" class="navbar-link">
+          <span class="glyphicon glyphicon-ok pull-right">
+          </span>
+                </a>
+            </p>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid my-header">
+    <form>
+        <label for="Name">Name</label>
+        <input type="text" class="form-control" placeholder="" name="name" id="Name"/>
+
+        <label for="text">Text</label>
+        <input type="text" class="form-control" placeholder="" name="text" id="text"/>
+
+
+        <label for="myList">Size</label>
+        <select id = "myList" class="form-control">
+            <option value = "1">1</option>
+            <option value = "2">2</option>
+            <option value = "3">3</option>
+            <option value = "4">4</option>
+        </select>
+
+        <a href="widget-list.html" class="btn btn-block btn-danger" role="button">Delete</a>
+
+    </form>
+
+</div>
+
+
+<!-- Footer -->
+<nav class="navbar navbar-default navbar-fixed-bottom greybar my-header">
+    <div class="container-fluid my-container-header">
+        <div class="navbar-header">
+
+            <p class="navbar-text pull-right">
+                <a href="profile.html" class="navbar-link">
+          <span class="glyphicon glyphicon-user pull-right">
+          </span>
+                </a>
+            </p>
+        </div>
+    </div>
+</nav>
+
+
 </body>
 </html>
