@@ -1,40 +1,66 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=width.device, initial-scale=1">
-    <title>New Page</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet"> </link>
 
-</head>
-<body>
-<!--Header -->
-<nav class="navbar navbar-default navbar-fixed-top greybar">
-    <div class="container-fluid my-container-header">
-        <div class="navbar-header">
+<!-- Header -->
+<div class="row">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid my-container-header col-lg-4 hidden-xs hidden-sm hidden-md">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
 
-            <p class="navbar-text pull-left">
-                <a href="page-list.html" class="navbar-link">
+                <p class="navbar-text pull-left">
+                    <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page" class="navbar-link">
           <span class="glyphicon glyphicon-chevron-left pull-left">
           </span>
-                </a>
-            </p>
+                    </a>
+                </p>
 
-            <a class="navbar-brand m" href="#">
-                Pages
-            </a>
-            <p class="navbar-text pull-right">
-                <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page"
-                   ng-click="model.addevent(page)"
-                   class="navbar-link">
+                <a class="navbar-brand m" href="">Pages</a>
+
+                <p class="navbar-text pull-right">
+                    <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/new" class="navbar-link">
+          <span class="glyphicon glyphicon-plus pull-right my-header-padding">
+          </span>
+                    </a>
+                </p>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+
+        <!-- Header 2 -->
+        <div class="container-fluid my-container-header col-xs-12 col-lg-8">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <!-- Changes trial -->
+                <p class="navbar-text pull-left hidden-lg">
+                    <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page" class="navbar-link">
+          <span class="glyphicon glyphicon-chevron-left pull-left">
+          </span>
+                    </a>
+                </p>
+                <!-- end -->
+                <a class="navbar-brand m my-header-padding1" href="">New Page</a>
+                <p class="navbar-text pull-right">
+                    <a  href=""
+                        ng-click="model.addevent(page)" class="navbar-link">
           <span class="glyphicon glyphicon-ok pull-right">
           </span>
-                </a>
-            </p>
-        </div>
-    </div>
-</nav>
+                    </a>
+                </p>
+
+
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+
+
+            <!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+
+
+    </nav>
+
+</div>
+
+
 
 
 <div class="row">
@@ -42,8 +68,8 @@
 
         <div class="container-fluid my-header">
             <ul class="list-group">
-                <li class="list-group-item" ng-repeat="pages in model.pages"><a href="website-list.html"> {{pages.name}} </a>
-                    <a href="website-edit.html">
+                <li class="list-group-item" ng-repeat="pages in model.pages"><a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page"> {{pages.name}} </a>
+                    <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{pages._id}}">
             <span class="glyphicon glyphicon-cog pull-right">
 
             </span></a>
@@ -74,22 +100,4 @@
 
 
 <!-- Footer -->
-<nav class="navbar navbar-default navbar-fixed-bottom greybar my-header">
-    <div class="container-fluid my-container-header">
-        <div class="navbar-header">
-
-            <p class="navbar-text pull-right">
-                <a href="user/views/profile.view.client.html" class="navbar-link">
-          <span class="glyphicon glyphicon-user pull-right">
-          </span>
-                </a>
-            </p>
-        </div>
-    </div>
-</nav>
-
-
-
-
-</body>
-</html>
+<ng-include src="'user/views/footer.view.client.html'"></ng-include>
