@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Profile</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet"> </link>
+</head>
+<body>
+
+<!--
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">
+                Fixed Top
+            </a>
+            <p class="navbar-text pull-right">
+                <a href="#" class="navbar-link">
+          <span class="glyphicon glyphicon-plus pull-right">
+          </span>
+                </a>
+            </p>
+        </div>
+    </div>
+</nav>
+-->
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid my-container-header">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <a class="navbar-brand m my-header-padding" href="#">Profile</a>
+            <p class="navbar-text pull-right">
+                <a href="" ng-click="model.updateUser()" class="navbar-link">
+          <span class="glyphicon glyphicon-ok pull-right">
+          </span>
+                </a>
+            </p>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+
+
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+<div class="container-fluid my-header">
+
+    <form>
+        <label for="Username">Username</label>
+        <input class="form-control"
+                type="text"
+                name="Username"
+               ng-model="model.user.username"
+                id="Username"
+                placeholder="Username"/>
+
+        <label for="email">Email</label>
+        <input class="form-control"
+               type="email"
+               name="email"
+               ng-model="model.user.email"
+               id="email"
+               placeholder="abc@xyz.com"/>
+
+        <label for="firstname">First Name</label>
+        <input class="form-control"
+               type="text"
+               name="firstname"
+               ng-model="model.user.firstName"
+               id="firstname"
+               placeholder="Bob"/>
+
+        <label for="lastname">Last Name</label>
+        <input class="form-control"
+               type="text"
+               name="lastname"
+               ng-model="model.user.lastName"
+               id="lastname"
+               placeholder="Martin"/>
+
+        <a class="btn btn-block btn-primary"
+           href="#/user/{{model.userId}}/website"
+           role="button">Websites</a>
+
+        <a class="btn btn-block btn-danger"
+           href="#/login"
+           role="button">Logout</a>
+
+
+        <a class="btn btn-block btn-danger"
+           href="" ng-click="model.deleteUser()"
+           role="button">Unregister</a>
+
+
+
+    </form>
+</div>
+
+
+<nav class="navbar navbar-default navbar-fixed-bottom my-header">
+    <div class="container-fluid my-container-header">
+        <div class="navbar-header">
+
+            <p class="navbar-text pull-right">
+                <a href="profile" class="navbar-link">
+          <span class="glyphicon glyphicon-user pull-right">
+          </span>
+                </a>
+            </p>
+        </div>
+    </div>
+</nav>
+
+</body>
+</html>

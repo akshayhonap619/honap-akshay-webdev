@@ -1,10 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="WebApp">
 <head>
     <meta charset="UTF-8">
-    <title>Assignment Home Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet"> </link>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.0/angular-route.js"></script>
+    <script src="app.js"></script>
+    <script src="service/user.service.client.js"></script>
+    <script src="user/controllers/login.controller.client.js"></script>
+    <script src="user/controllers/profile.controller.client.js"></script>
+    <script src="user/controllers/register.controller.client.js"></script>
+    <script src = "user/controllers/website-list.controller.client.js"></script>
+    <script src ="service/website.service.client.js"></script>
+    <script src="user/controllers/website-edit.controller.client.js"></script>
+    <script src="user/controllers/website-new.controller.client.js"></script>
+    <script src="user/controllers/page-list.controller.client.js"></script>
+    <script src="service/page.service.client.js"></script>
+    <script src ="user/controllers/page-new.controller.client.js"></script>
+    <script src="user/controllers/page-edit.controller.client.js"></script>
+    <script src="user/controllers/widget-list.controller.client.js"></script>
+    <script src="service/widget.service.client.js"></script>
+    <script src="user/controllers/widget-edit.controller.client.js"></script>
+    <script src="user/controllers/widget-new.controller.client.js"></script>
+
 </head>
+
 <body>
-    <h1>Assignment Home Page</h1>
+
+<div ng-view>
+
+
+</div>
+
+
 </body>
 </html>
