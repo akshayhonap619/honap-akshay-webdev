@@ -20,7 +20,7 @@
 
             function addevent(page) {
                 pageService.addPage(page, model.websiteId);
-                $location.url("/user/"+model.userIdId+"/website/"+model.websiteId+"/page");
+                $location.url("/user/"+model.userId+"/website/"+model.websiteId+"/page");
             }
 
         }
