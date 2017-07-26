@@ -11,7 +11,9 @@
     function registerController($location, userService) {
 
         var model = this;
-        model.register = function (username, password, password1) {
+        model.register = register;
+
+            function register(username, password, password1) {
 
             if(username === null || username === '' || username === undefined ) {
                 model.errorMessage = "UserName Cannot be null";
