@@ -1,8 +1,56 @@
-<div ng-switch="widget.size">
-<h1 ng-switch-when="1">{{widget.text}} </h1>
-<h2 ng-switch-when="2">{{widget.text}} </h2>
-<h3 ng-switch-when="3">{{widget.text}} </h3>
-<h4 ng-switch-when="4">{{widget.text}} </h4>
-<h5 ng-switch-when="5">{{widget.text}} </h5>
-<h6 ng-switch-when="6">{{widget.text}} </h6>
+<!DOCTYPE html>
+
+
+<!--Header -->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid my-container-header">
+        <div class="navbar-header">
+
+            <p class="navbar-text pull-left">
+                <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget" class="navbar-link">
+          <span class="glyphicon glyphicon-chevron-left pull-left">
+          </span>
+                </a>
+            </p>
+
+            <a class="navbar-brand m" href="#">
+                Widget Edit
+            </a>
+            <p class="navbar-text pull-right">
+                <a href="" ng-click="model.updateevent()" class="navbar-link">
+          <span class="glyphicon glyphicon-ok pull-right">
+          </span>
+                </a>
+            </p>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid my-header">
+    <form>
+        <label for="Name">Name</label>
+        <input type="text" ng-model="model.widget.name" class="form-control" placeholder="" name="name" id="Name"/>
+
+        <label for="text">Text</label>
+        <input type="text" ng-model="model.widget.text" class="form-control" placeholder="" name="text" id="text"/>
+
+
+        <label for="myList">Size</label>
+        <select id = "myList" class="form-control" ng-model="model.widget.size">
+            <option value= "1">1</option>
+            <option value= "2">2</option>
+            <option value= "3">3</option>
+            <option value= "4">4</option>
+            <option value= "5">5</option>
+            <option value= "6">6</option>
+        </select>
+
+        <a href="" ng-click="model.deleteevent()" class="btn btn-block btn-danger" role="button">Delete</a>
+
+    </form>
+
 </div>
+
+
+<!-- Footer -->
+<ng-include src="'user/views/footer.view.client.html'"></ng-include>
