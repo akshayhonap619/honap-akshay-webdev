@@ -17,7 +17,7 @@
             })
             .when("/register", {
                 templateUrl: 'user/views/register.view.client.html',
-                controller: "user/views/registerController as model"
+                controller: "registerController as model"
             })
             .when("/user/:userId/website", {
                 templateUrl: 'website/views/website-list.view.client.html',
