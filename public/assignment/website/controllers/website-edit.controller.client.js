@@ -22,22 +22,35 @@
             init();
             
             function init() {
-               model.website =  websiteService.findWebsiteById(model.websiteId);
-               model.allWebsites= websiteService.findAllWebsitesForUser(model.userId);
-               //console.log(model.allWebsites);
-               //console.log(model);
+                 websiteService.findWebsiteById(model.websiteId)
+                     .then(function (response) {
+                         model.website = response;
+                     });
+
+               websiteService.findAllWebsitesForUser(model.userId)
+                   .then(function (response) {
+                       model.allWebsites= response;
+                   })
+
             }
             
             function deleteevent() {
-                websiteService.deleteWebsite(model.websiteId);
-                $location.url("/user/"+model.userId+"/website");
+                websiteService.deleteWebsite(model.websiteId)
+                    .then(function (response) {
+                        $location.url("/user/"+model.userId+"/website");
+                    })
+
             }
 
             function updateevent() {
-                websiteService.updateWebsite(model.websiteId,model.website.name, model.website.description);
-                $location.url("/user/"+model.userId+"/website");
-                console.log(model.website);
-                console.log("done");
+                websiteService.updateWebsite(model.websiteId,model.website)
+                    .then(function (response) {
+                        $location.url("/user/"+model.userId+"/website");
+                    });
+
+
+                //console.log(model.website);
+                //console.log("done");
             }
             
         }

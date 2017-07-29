@@ -12,8 +12,10 @@
         init();
 
         function init() {
-                model.websites = websiteService.findAllWebsitesForUser(model.userId);
-                console.log("Back here");
+                  websiteService.findAllWebsitesForUser(model.userId)
+                      .then(function (response) {
+                          model.websites = response;
+                      })
         }
             
 

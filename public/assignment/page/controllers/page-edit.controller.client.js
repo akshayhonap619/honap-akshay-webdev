@@ -17,19 +17,32 @@
             init();
 
             function init() {
-                model.page = pageService.findPageById(model.pageId);
-                model.pages = pageService.findPageByWebsiteId(model.websiteId);
+                 pageService.findPageById(model.pageId)
+                     .then(function (response) {
+                         model.page = response;
+                     });
+
+                pageService.findPageByWebsiteId(model.websiteId)
+                     .then(function (response) {
+                         model.pages = response;
+                     });
             }
 
             function  deleteevent() {
-                pageService.deletePage(model.pageId);
-                $location.url("/user/"+model.userId+"/website/"+model.websiteId+"/page");
+                pageService.deletePage(model.pageId)
+                    .then(function (response) {
+                        $location.url("/user/"+model.userId+"/website/"+model.websiteId+"/page");
+                    });
+
             }
 
 
             function updateevent() {
-                pageService.updatePage(model.pageId, model.page.name, model.page.description);
-                $location.url("/user/"+model.userId+"/website/"+model.websiteId+"/page");
+                pageService.updatePage(model.pageId, model.page)
+                    .then(function (response) {
+                        $location.url("/user/"+model.userId+"/website/"+model.websiteId+"/page");
+                    });
+
 
             }
 

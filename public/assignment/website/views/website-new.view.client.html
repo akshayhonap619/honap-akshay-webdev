@@ -1,13 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=width.device, initial-scale=1">
-    <title>New Website</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet"> </link>
-</head>
-<body>
 
 
 <!-- Header -->
@@ -18,16 +8,16 @@
             <div class="navbar-header">
 
                 <p class="navbar-text pull-left">
-                    <a href="website-list.html" class="navbar-link">
+                    <a href="#/user/{{model.userId}}/website" class="navbar-link">
           <span class="glyphicon glyphicon-chevron-left pull-left">
           </span>
                     </a>
                 </p>
 
-                <a class="navbar-brand m" href="#">Websites</a>
+                <a class="navbar-brand m" href="">Websites</a>
 
                 <p class="navbar-text pull-right">
-                    <a href="website-new.html" class="navbar-link">
+                    <a href="#/user/{{model.userId}}/website/new" class="navbar-link">
           <span class="glyphicon glyphicon-plus pull-right my-header-padding">
           </span>
                     </a>
@@ -42,7 +32,7 @@
             <div class="navbar-header">
                 <!-- Changes trial -->
                 <p class="navbar-text pull-left hidden-lg">
-                    <a href="website-list.html" class="navbar-link">
+                    <a href="#/user/{{model.userId}}/website" class="navbar-link">
           <span class="glyphicon glyphicon-chevron-left pull-left">
           </span>
                     </a>
@@ -80,27 +70,27 @@
 
         <div class="container-fluid my-header">
             <ul class="list-group">
-                <li class="list-group-item" ng-repeat="websites in model.allWebsites"><a href="website-list.html"> {{websites.name}} </a>
-                    <a href="website-edit.html">
+                <li class="list-group-item" ng-repeat="websites in model.allWebsites"><a href="#/user/{{model.userId}}/website"> {{websites.name}} </a>
+                    <a href="#/user/{{model.userId}}/website/{{websites._id}}">
             <span class="glyphicon glyphicon-cog pull-right">
 
             </span></a>
                 </li>
                 <!--
-                <li class="list-group-item"><a href="website-list.html"> Blogger </a>
-                    <a href="website-edit.html">
+                <li class="list-group-item"><a hrwebsite-list.view.client.htmlhtml"> Blogger </a>
+                    <a hrwebsite-edit.view.client.htmlhtml">
             <span class="glyphicon glyphicon-cog pull-right">
 
             </span></a>
                 </li>
-                <li class="list-group-item"><a href="website-list.html"> Blogging App </a>
-                    <a href="website-edit.html">
+                <li class="list-group-item"><a hrwebsite-list.view.client.htmlhtml"> Blogging App </a>
+                    <a hrwebsite-edit.view.client.htmlhtml">
             <span class="glyphicon glyphicon-cog pull-right">
 
             </span></a>
                 </li>
-                <li class="list-group-item"><a href="website-list.html"> Script Testing App </a>
-                    <a href="website-edit.html">
+                <li class="list-group-item"><a hrwebsite-list.view.client.htmlhtml"> Script Testing App </a>
+                    <a hrwebsite-edit.view.client.htmlhtml">
             <span class="glyphicon glyphicon-cog pull-right">
 
             </span></a>
@@ -136,12 +126,14 @@
     </div>
 </div>
 
+
+<!--
 <nav class="navbar navbar-default navbar-fixed-bottom my-header">
     <div class="container-fluid my-container-header">
         <div class="navbar-header">
 
             <p class="navbar-text pull-right">
-                <a href="user/views/profile.view.client.html" class="navbar-link">
+                <a href="../../user/views/profile.view.client.html" class="navbar-link">
           <span class="glyphicon glyphicon-user pull-right">
           </span>
                 </a>
@@ -149,5 +141,5 @@
         </div>
     </div>
 </nav>
-</body>
-</html>
+-->
+<ng-include src="'user/views/footer.view.client.html'"></ng-include>

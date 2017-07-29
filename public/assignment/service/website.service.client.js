@@ -5,7 +5,7 @@
        angular.module("WebApp")
            .service("websiteService", websiteService);
 
-       function websiteService() {
+       function websiteService($http) {
             this.findAllWebsitesForUser = findAllWebsitesForUser;
             this.findWebsiteById = findWebsiteById;
             this.deleteWebsite = deleteWebsite;
@@ -23,7 +23,7 @@
            ];
 
            function findAllWebsitesForUser(userId) {
-               var results=[];
+               /*var results=[];
 
                for(v in websitesList)
                {
@@ -34,55 +34,65 @@
                    }
                }
                //  console.log(results);
-               return results;
+               return results;*/
+
+               var url = "/user/"+userId+"/website";
+               return $http.get(url)
+                   .then(function (response) {
+                       return response.data;
+                   })
+
            }
 
-           function findWebsiteById(id) {
-               var  result = {};
-               for(v in websitesList)
-               {
-                   if(websitesList[v]._id === id)
-                   {
-                      // result = websitesList[v];
-                       result._id = websitesList[v]._id;
-                       result.name = websitesList[v].name;
-                       result.developerId = websitesList[v].developerId;
-                       result.description = websitesList[v].description;
-                   }
-               }
-               return result;
+           function findWebsiteById(websiteId) {
+
+               var url = "/website/"+websiteId;
+               return $http.get(url)
+                   .then(function (response) {
+                       return response.data;
+                   });
+
            }
 
            function deleteWebsite(websiteId) {
-              // var myWebsite = findWebsiteById(websiteId);
-               //var index = websitesList.indexOf(myWebsite);
-               //websitesList.splice(index,1);
-             /*  for(w in websitesList)
-               {
-                   if(websitesList[w]._id == websiteId){
-                       var index = websitesList.indexOf(websitesList[w]);
-                       websitesList.splice(index,1);
-                   }
-               }
-            */
-             websitesList.forEach(function (value , index)
+
+             /*websitesList.forEach(function (value , index)
              {
                  if(value._id == websiteId){
                      websitesList.splice(index,1);
                  }
-             })
-               return;
+             });
+               return;*/
+             var url = "/website/"+websiteId;
+             return $http.delete(url)
+                 .then(function (response) {
+                     return response.data;
+                 });
            }
 
-           function addWebsite(website, devid) {
+           function addWebsite(website, userId) {
+
+               /*
                website._id = (new Date()).getTime() +"";
                website.developerId= devid;
                websitesList.push(website);
-               return;
+               return;*/
+               var url = "/user/"+userId+"/website";
+               return $http.post(url,website)
+                   .then(function (response) {
+                       return response.data;
+                   });
            }
 
-           function updateWebsite(websiteId, name, description){
-                   for(v in websitesList)
+           function updateWebsite(websiteId, website){
+               var url = "/website/"+websiteId;
+
+               return $http.put(url,website)
+                   .then(function (response) {
+                       return response.data;
+                   });
+
+               /*for(v in websitesList)
                    {
                        if(websitesList[v]._id == websiteId)
                        {
@@ -90,7 +100,7 @@
                            websitesList[v].description = description;
                        }
                    }
-                   return;
+                   return;*/
            }
 
        }

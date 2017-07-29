@@ -16,13 +16,17 @@
         init();
 
         function init() {
-            model.allWebsites= websiteService.findAllWebsitesForUser(model.userId);
+            websiteService.findAllWebsitesForUser(model.userId)
+                .then(function (response) {
+                    model.allWebsites=response;
+                })
         }
 
         function addevent(website) {
-            websiteService.addWebsite(website, model.userId);
-
-            $location.url("/user/"+model.userId+"/website");
+            websiteService.addWebsite(website, model.userId)
+                .then(function (response) {
+                    $location.url("/user/"+model.userId+"/website");
+                });
         }
 
     }

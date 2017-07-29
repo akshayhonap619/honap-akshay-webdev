@@ -15,12 +15,18 @@
             init();
 
             function init() {
-                model.pages = pageService.findPageByWebsiteId(model.websiteId);
+                 pageService.findPageByWebsiteId(model.websiteId)
+                     .then(function (response) {
+                         model.pages = response;
+                     });
             }
 
             function addevent(page) {
-                pageService.addPage(page, model.websiteId);
-                $location.url("/user/"+model.userIdId+"/website/"+model.websiteId+"/page");
+                pageService.addPage(page, model.websiteId)
+                    .then(function (response) {
+                        $location.url("/user/"+model.userId+"/website/"+model.websiteId+"/page");
+                    });
+
             }
 
         }
