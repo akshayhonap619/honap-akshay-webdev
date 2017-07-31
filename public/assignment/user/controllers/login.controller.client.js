@@ -16,7 +16,6 @@
         model.welcomeUser = undefined;
 
 
-
         function login(user) {
 
             userService.findUserByUserName(user.username, user.password)
@@ -29,17 +28,15 @@
 
             function errorLogin(error) {
                 model.welcomeUser = "User not found " + user.username;
+
             }
         }
 
-             function register() {
-                $location.url("register");
-            }
-
-
-
-
+        function register() {
+            $location.url("register");
         }
+
+    }
 
 
 

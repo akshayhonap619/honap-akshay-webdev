@@ -25,7 +25,6 @@
                 return;
             }
 
-
             userService.findUserByUserNameonly(username)
                 .then(successRegister, errorRegister);
 
@@ -57,6 +56,7 @@
         }
 
     }
+
 
 
 
