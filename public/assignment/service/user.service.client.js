@@ -135,7 +135,6 @@
 
             return $http.delete(url)
                 .then(function (response) {
-                    console.log("babu deleted");
                     return response.data;
                 })
 

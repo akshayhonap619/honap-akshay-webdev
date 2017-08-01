@@ -1,6 +1,9 @@
 /**
  * Created by Akshay on 7/27/2017.
  */
+//require('mongoose');
+var userModel =  require('../model/user/user.model.server');
+
 var app = require("../../express");
 
 app.get("/api/user/:userId", findUserById);
@@ -19,16 +22,11 @@ var users = [
 
 function findUserById(req, res) {
     var userId = req.params.userId;
-    var result ={};
-        for(u in users)
-        {
-            if(users[u]._id === userId)
-            {
-                result =  users[u];
-            }
 
-        }
-    res.send(result);
+        userModel.findUserById(userId)
+            .then(function (user) {
+                res.send(user);
+            });
 }
 
 function findUser(req, res) {
@@ -46,7 +44,7 @@ function findUser(req, res) {
 
     }*/
     if(typeof password == 'undefined'){
-        var result = findUserByUsernameOnly(username);
+        /*var result = findUserByUsernameOnly(username);
         console.log(result);
         if(result === null){
 
@@ -54,33 +52,53 @@ function findUser(req, res) {
         }
         else{
                 res.send(404);
-        }
+        }*/
+        userModel.findUserByUsernameOnly(username)
+            .then(function (user) {
+              if(user!=null) {
+                  res.send(404)
+              }
+                  else{
+                      res.send(200)
+                  }
+
+            });
+
     }
     else
     {
 
-        var result = findUserByUsernamePassword(username,password)
-        if(result == null){
-            res.send(404);
-        }
-        else{
-            res.json(result);
-        }
+        userModel.findUserByUsernamePassword(username,password)
+            .then(function (user) {
+                if(user!=null) {
+                    res.send(user)
+                }
+                    else {
+                    res.send(404);
+                }
+            });
+
     }
 
-    //res.send(404);
+
 
 }
 
 function createUser(req , res) {
-    var newUser = { _id : (new Date()).getTime() + "",
+    var newUser = {   //_id : (new Date()).getTime() + "",
     username : req.body.username,
     password : req.body.password
  };
 
- users.push(newUser);
+userModel.createUser(newUser)
+         .then(function (user) {
+             console.log("babu user is "+user);
+             res.send(user._id);
+         });
 
-    res.send(newUser);
+ //users.push(newUser);
+
+
 }
 
 function updateUser(req, res) {
@@ -89,7 +107,7 @@ function updateUser(req, res) {
 
     //console.log(req.body);
 
-    for(u in users){
+    /*for(u in users){
         if(users[u]._id == userId){
             users[u].firstName = user.firstName;
             users[u].lastName = user.lastName;
@@ -98,7 +116,13 @@ function updateUser(req, res) {
             res.send(200);
             return;
         }
-    }
+    }*/
+
+    userModel.updateUser(userId,user)
+        .then(function (status) {
+            res.send(200);
+        });
+
 
 
 }
@@ -106,19 +130,12 @@ function updateUser(req, res) {
 
 function deleteUser(req,res) {
     var userId = req.params.userId;
-    console.log(userId);
+//    console.log(userId);
 
-    var user;
-    for(u in users){
-        if(users[u]._id === userId){
-            user = users[u];
-        }
-    }
-    var index = users.indexOf(user);
-    console.log("iindex is "+index);
-    users.splice(index,1);
-
-    res.send(200);
+    userModel.deleteUser(userId)
+        .then(function (user) {
+            res.send(200);
+        });
 }
 
 function findUserByUsernameOnly(username) {
@@ -132,10 +149,15 @@ function findUserByUsernameOnly(username) {
 
 function findUserByUsernamePassword(username, password) {
 
-      for(u in users){
+    userModel.findUserByUsernamePassword(username,password)
+        .then(function (user) {
+
+        });
+
+      /*for(u in users){
           if(users[u].username == username && users[u].password == password){
              return users[u];
           }
       }
-      return null;
+      return null;*/
 }

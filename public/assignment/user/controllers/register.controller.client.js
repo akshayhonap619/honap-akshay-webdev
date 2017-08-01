@@ -43,7 +43,8 @@
 
                 userService.addUser(user)
                     .then(function (response) {
-                        $location.url("/user/" + response._id);
+
+                        $location.url("/user/" + response);
                     })
 
                 //var id = userService.addUser(user);

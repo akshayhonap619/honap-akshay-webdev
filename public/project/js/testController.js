@@ -12,7 +12,7 @@
         var model = this;
 
         model.searchJob = searchJob;
-      
+
 
         function searchJob(text) {
             var url = "http://service.dice.com/api/rest/jobsearch/v1/simple.json?text="+text;
