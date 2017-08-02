@@ -2,8 +2,8 @@
  * Created by Akshay on 8/2/2017.
  */
 (function () {
-    angular.module("WebApp")
-        .directive("sortWidget", sortWidget);
+    angular.module("MyModule",[])
+        .directive("wbdvSortable", sortWidget);
 
     function sortWidget(widgetService) {
         console.log("Here");

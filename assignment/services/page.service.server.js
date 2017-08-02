@@ -7,11 +7,11 @@ var app = require("../../express");
 
 //console.log(app);
 
-app.get("/website/:websiteId/page",findAllPagesForWebsite);
-app.get("/page/:pageId",findPageById);
-app.put("/page/:pageId",updatePage);
-app.delete("/page/:pageId",deletePage);
-app.post("/website/:websiteId/page",addPage);
+app.get("/api/website/:websiteId/page",findAllPagesForWebsite);
+app.get("/api/page/:pageId",findPageById);
+app.put("/api/page/:pageId",updatePage);
+app.delete("/api/page/:pageId",deletePage);
+app.post("/api/website/:websiteId/page",addPage);
 var pages =
     [
         { "_id": "321", "name": "Post 1", "websiteId": "456", "description": "Lorem" },

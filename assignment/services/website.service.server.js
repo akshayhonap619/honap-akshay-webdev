@@ -5,11 +5,11 @@
 
 var app = require("../../express");
 
-app.get("/user/:userId/website", findAllWebsitesForUser);
-app.get("/website/:websiteId",findWebsiteById);
-app.post("/user/:userId/website",addWebsite );
-app.delete("/website/:websiteId",deleteWebsite);
-app.put("/website/:websiteId",updateWebsite);
+app.get("/api/user/:userId/website", findAllWebsitesForUser);
+app.get("/api/website/:websiteId",findWebsiteById);
+app.post("/api/user/:userId/website",addWebsite );
+app.delete("/api/website/:websiteId",deleteWebsite);
+app.put("/api/website/:websiteId",updateWebsite);
 
 var websitesList = [
     { "_id": "123", "name": "Facebook",    "developerId": "456", "description": "Lorem" },

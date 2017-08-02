@@ -3,12 +3,12 @@
  */
 var app = require("../../express");
 
-app.get("/user/:userId", findUserById);
-app.get("/user", findUser);
+app.get("/api/user/:userId", findUserById);
+app.get("/api/user", findUser);
 
-app.post("/user", createUser);
-app.put("/user/:userId", updateUser);
-app.delete("/user/:userId", deleteUser);
+app.post("/api/user", createUser);
+app.put("/api/user/:userId", updateUser);
+app.delete("/api/user/:userId", deleteUser);
 
 var users = [
     {_id: "123", username: "alice",    password: "alice",    firstName: "Alice",  lastName: "Wonder"  },

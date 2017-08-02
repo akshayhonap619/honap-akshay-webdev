@@ -110,13 +110,13 @@ function uploadImage(req, res) {
     var size = myFile.size;
     var mimetype = myFile.mimetype;
 
-    console.log(myFile);
+    //console.log(myFile);
     //var appp = require("../../public/uploads")
     for(var w in widgets) {
         if (widgets[w]._id == widgetId) {
             widgets[w].url = "../../uploads/" + filename;
             widgets[w].width = width;
-            console.log(widgets[w].url);
+        //    console.log(widgets[w].url);
         }
     }
 
@@ -138,9 +138,11 @@ function reorderWidgetPosition(req, res) {
 
     for(var w in widgets) {
         if(widgets[w].pageId === pageId){
-            if(widgets[w].hasOwnProperty('order') === false) {
-                widgets[w].order = i;
+            if (typeof widgets[w].order != 'undefined'){//widgets[w].hasOwnProperty('order') == true) {
+               // widgets[w].order = i;
                 i++;
+                console.log("Equals   "+widgets[w].order);
+
             }
             widgetsOfThisPage.push((widgets[w]));
 
@@ -148,8 +150,24 @@ function reorderWidgetPosition(req, res) {
     }
     //console.log(widgetsOfThisPage);
 
+    for(w in widgetsOfThisPage){
+
+        if (typeof widgetsOfThisPage[w].order === 'undefined'){//widgets[w].hasOwnProperty('order') == true) {
+            widgetsOfThisPage[w].order=i;
+            //i++;
+            console.log("Assignment  "+widgetsOfThisPage[w].order);
+            i++;
+        }
+    }
+
+
+
+
+
+    //console.log(widgetsOfThisPage);
+
     if(widgetsOfThisPage === []) {
-        res.sendStatus(404);
+
     } else {
         for(var w in widgetsOfThisPage) {
             if(initial < final) {

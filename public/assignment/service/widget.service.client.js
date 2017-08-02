@@ -73,7 +73,7 @@
         function reorderWidgetPosition(initial,final,pageId){
 
             var url = "/page/"+pageId+"/widget?initial="+initial+"&final="+final;
-
+            console.log(url);
                 return $http.put(url)
                              .then(function (response) {
                                  return response.data;

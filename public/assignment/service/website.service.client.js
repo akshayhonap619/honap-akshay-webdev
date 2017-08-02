@@ -36,7 +36,7 @@
                //  console.log(results);
                return results;*/
 
-               var url = "/user/"+userId+"/website";
+               var url = "/api/user/"+userId+"/website";
                return $http.get(url)
                    .then(function (response) {
                        return response.data;
@@ -46,7 +46,7 @@
 
            function findWebsiteById(websiteId) {
 
-               var url = "/website/"+websiteId;
+               var url = "/api/website/"+websiteId;
                return $http.get(url)
                    .then(function (response) {
                        return response.data;
@@ -63,7 +63,7 @@
                  }
              });
                return;*/
-             var url = "/website/"+websiteId;
+             var url = "/api/website/"+websiteId;
              return $http.delete(url)
                  .then(function (response) {
                      return response.data;
@@ -77,7 +77,7 @@
                website.developerId= devid;
                websitesList.push(website);
                return;*/
-               var url = "/user/"+userId+"/website";
+               var url = "/api/user/"+userId+"/website";
                return $http.post(url,website)
                    .then(function (response) {
                        return response.data;
@@ -85,7 +85,7 @@
            }
 
            function updateWebsite(websiteId, website){
-               var url = "/website/"+websiteId;
+               var url = "/api/website/"+websiteId;
 
                return $http.put(url,website)
                    .then(function (response) {

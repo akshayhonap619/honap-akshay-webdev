@@ -40,7 +40,7 @@
                 }
             }
             return result;*/
-            var url = "/website/"+websiteId+"/page";
+            var url = "/api/website/"+websiteId+"/page";
             console.log(url);
             return $http.get(url)
                 .then(function (response) {
@@ -65,7 +65,7 @@
             }
             return result;*/
 
-            var url = "/page/"+pageId;
+            var url = "/api/page/"+pageId;
             return $http.get(url)
                 .then(function (response) {
                    return response.data;
@@ -80,7 +80,7 @@
 
             pages.push(page);*/
 
-            var url = "/website/"+websiteId+"/page";
+            var url = "/api/website/"+websiteId+"/page";
             return $http.post(url, page)
                 .then(function (response) {
                     return response.data;
@@ -97,7 +97,7 @@
                     pages[p].description = description;
                 }
             }*/
-            var url = "/page/"+pageId;
+            var url = "/api/page/"+pageId;
             return $http.put(url,page)
                 .then(function (response) {
                     return response.data;
@@ -105,7 +105,7 @@
         }
 
         function deletePage(pageId) {
-           var url = "/page/"+pageId;
+           var url = "/api/page/"+pageId;
            return $http.delete(url)
                .then(function (response) {
                   return response.data;

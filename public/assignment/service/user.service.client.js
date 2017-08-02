@@ -14,17 +14,17 @@
             {_id: "456", username: "jannunzi", password: "jannunzi", firstName: "Jose",   lastName: "Annunzi" }
         ];
 
-        var api = {"findUserByUserName" : findUserByUserName,
+        var objs = {"findUserByUserName" : findUserByUserName,
                     "findUserById": findUserById,
                     "findUserByUserNameonly": findUserByUserNameonly,
                     "addUser": addUser,
                     "updateUser" : updateUser,
                     "deleteUser" : deleteUser
         };
-        return api;
+        return objs;
 
         function findUserByUserName(username, password) {
-           var url = "/user?username="+username+"&password="+password;
+           var url = "/api/user?username="+username+"&password="+password;
             return $http.get(url)
                .then(function (response) {
                    return response.data;
@@ -44,7 +44,7 @@
         }
         
         function findUserById(userId) {
-            var url = "/user/"+userId
+            var url = "/api/user/"+userId
             return $http.get(url)
                 .then(function (response) {
                     return response.data;
@@ -63,7 +63,7 @@
 
         function findUserByUserNameonly(username) {
 
-           var url = "/user?username="+username;
+           var url = "/api/user?username="+username;
            return $http.get(url)
                .then(function (response) {
                    return response.data;
@@ -81,7 +81,7 @@
 
         function addUser(user) {
 
-            var url = "/user";
+            var url = "/api/user";
             return $http.post(url,user)
                 .then(function (response) {
                      return response.data;
@@ -110,7 +110,7 @@
         }*/
 
         function updateUser(userId, user) {
-        var url = "/user/"+userId;
+        var url = "/api/user/"+userId;
 
         return $http.put(url,user)
                     .then(function (response) {
@@ -122,7 +122,7 @@
 
         function deleteUser(userId) {
 
-            var url = "/user/"+userId;
+            var url = "/api/user/"+userId;
 
             return $http.delete(url)
                 .then(function (response) {

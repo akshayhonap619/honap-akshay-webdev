@@ -3,7 +3,7 @@
  */
 
 (function() {
-        var app = angular.module("WebApp", ["ngRoute"]);
+        var app = angular.module("WebApp", ["ngRoute","MyModule"]);
     }
 
 )();
