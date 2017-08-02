@@ -23,8 +23,9 @@
         </div>
     </div>
 </nav>
-<div class="container-fluid my-header">
-    <div class="my-widget" ng-repeat="widget in model.widgets">
+<div class="container-fluid my-header" sort-widget="">
+    <div class="my-widget" ng-repeat="widget in model.widgets | orderBy: widget.order">
+            {{widget.order}}
         <div class="my-widget-toolbar">
             <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}"> <span class="glyphicon glyphicon-cog"></span> </a>
             <span class="glyphicon glyphicon-align-justify"></span>
@@ -53,7 +54,6 @@
     </div>
 
 </div>
-
 
 
 <!-- Footer -->

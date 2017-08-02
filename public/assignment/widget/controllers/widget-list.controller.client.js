@@ -18,11 +18,14 @@
         init();
 
         function init() {
-            model.widgets = widgetService.findWidgetsByPageId(model.pageId);
+             widgetService.findWidgetsByPageId(model.pageId)
+                .then(function (response) {
+                    model.widgets = response;
+                });
         }
 
         function trustHtml(text) {
-            console.log($sce.trustAsHtml(text));
+           // console.log($sce.trustAsHtml(text));
              return $sce.trustAsHtml(text);
         }
         

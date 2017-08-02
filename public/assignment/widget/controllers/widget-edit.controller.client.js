@@ -18,18 +18,29 @@
             init();
             
             function init() {
-                model.widget = widgetService.findWidgetById(model.widgetId);
+                 widgetService.findWidgetById(model.widgetId)
+                    .then(function (response) {
+                        model.widget = response;
+                    });
             }
 
             function deleteevent() {
-                widgetService.deleteWidget(model.widgetId);
-                $location.url('/user/'+model.userId+'/website/'+model.websiteId+'/page/'+model.pageId+'/widget')
+                widgetService.deleteWidget(model.widgetId)
+                    .then(function (response) {
+                        $location.url('/user/'+model.userId+'/website/'+model.websiteId+'/page/'+model.pageId+'/widget');
+                    });
+
             }
 
             function updateevent(){
 
-                widgetService.updateWidget(model.widgetId,model.widget);
-                $location.url("/user/"+model.userId+"/website/"+model.websiteId+"/page/"+model.pageId+"/widget");
+                widgetService.updateWidget(model.widget,model.widgetId)
+                    .then(function (response) {
+                        $location.url("/user/"+model.userId+"/website/"+model.websiteId+"/page/"+model.pageId+"/widget");
+                    })
+
+
+
             }
 
         }

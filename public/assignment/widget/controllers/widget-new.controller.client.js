@@ -12,11 +12,26 @@
             model.userId = $routeParams.userId;
             model.widgetId = $routeParams.widgetId;
 
-            model.newHeading = newHeading;
-            model.newImage = newImage;
-            model.newYoutube = newYoutube;
+            model.newWidget = newWidget;
+
+           // model.newHeading = newHeading;
+           // model.newImage = newImage;
+           // model.newYoutube = newYoutube;
 
 
+
+            function newWidget(type) {
+                var widget = {};
+                console.log("type is "+type);
+                widget._id = (new Date()).getTime() + "";
+                widget.widgetType = type+"";
+                widget.pageId = model.pageId;
+                widgetService.createWidget(widget,model.pageId)
+                    .then(function (response) {
+                        $location.url("/user/"+model.userId+"/website/"+model.websiteId+"/page/"+model.pageId+"/widget/"+widget._id);
+                    });
+
+            }
 
             function newHeading() {
 
