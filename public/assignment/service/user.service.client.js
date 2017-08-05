@@ -9,7 +9,7 @@
     function userService($http) {
         var users = [
             {_id: "123", username: "alice",    password: "alice",    firstName: "Alice",  lastName: "Wonder"  },
-           // {_id: "234", username: "bob",      password: "bob",      firstName: "Bob",    lastName: "Marley"  },
+            {_id: "234", username: "bob",      password: "bob",      firstName: "Bob",    lastName: "Marley"  },
             {_id: "345", username: "charly",   password: "charly",   firstName: "Charly", lastName: "Garcia"  },
             {_id: "456", username: "jannunzi", password: "jannunzi", firstName: "Jose",   lastName: "Annunzi" }
         ];
@@ -25,8 +25,17 @@
 
         function findUserByUserName(username, password) {
            var url = "/api/user?username="+username+"&password="+password;
+            //var url = "http://localhost:8080/WebProject/text/user?username="+username+"&password="+password+"/profile";
+
+           //var m= {_id: "234", username: "bob",      password: "bob",      firstName: "Bob",    lastName: "Marley"  };
+
+
+            //var url = "http://localhost:8080/WebProject/user/*/website";
+
             return $http.get(url)
                .then(function (response) {
+                   console.log("here");
+                   console.log(response.data);
                    return response.data;
                });
 
