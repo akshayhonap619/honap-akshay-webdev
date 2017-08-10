@@ -33,6 +33,9 @@
             var embedd = "https://www.youtube.com/embed/"
             var splitlink = url.split("/");
             embedd += splitlink[splitlink.length-1];
+
+            console.log("Youtube "+embedd);
+
             return $sce.trustAsResourceUrl(embedd);
         }
 

@@ -9,6 +9,7 @@ var pageSchema = mongoose.Schema(
         description : String,
         website : {type : mongoose.Schema.Types.ObjectId, ref : "websiteModel"},
         created : {type : Date, default : Date.now()},
+        widgets : [{type : mongoose.Schema.Types.ObjectId, ref: "widgetModel"}]
     },{collection:"page"});
 
 module.exports = pageSchema;

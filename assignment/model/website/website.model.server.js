@@ -69,7 +69,7 @@ function deleteWebsite(websiteId, done) {
 function addPage(websiteId, pageId) {
     return websiteModel.findById(websiteId)
         .then(function (website) {
-            console.log("website model "+website)
+           // console.log("website model "+website)
             website.pages.push(pageId);
             return website.save();
         })

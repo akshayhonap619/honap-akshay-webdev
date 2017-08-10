@@ -55,6 +55,10 @@
                 templateUrl : 'widget/views/widget-edit.view.client.html',
                 controller: 'widgetEditController as model'
             })
+            .when('/user/:userId/website/:websiteId/page/:pageId/widget/:widgetId/search', {
+                templateUrl: 'widget/views/widget-flickr-search.view.client.html',
+                controller: 'flickrController as model',
+            })
 
 
 

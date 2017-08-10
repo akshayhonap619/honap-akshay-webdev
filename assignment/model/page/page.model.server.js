@@ -15,7 +15,8 @@ pageModel.findAllPagesForWebsite =findAllPagesForWebsite;
 pageModel.updatePage = updatePage;
 pageModel.addPage = addPage;
 pageModel.deletePage = deletePage;
-
+pageModel.addWidget = addWidget;
+pageModel.removeWidget = removeWidget;
 module.exports = pageModel;
 
 function findPageById(pageId) {
@@ -82,5 +83,29 @@ function deleteWebsite(websiteId, done) {
                             done(response);
                         });
                 })
+        })
+}
+
+function addWidget(pageId, widgetId) {
+    console.log("pmodel "+widgetId);
+    return pageModel.findById(pageId)
+        .then(function (page) {
+            page.widgets.push(widgetId);
+            return page.save();
+        })
+}
+
+function removeWidget(pageId, widgetId) {
+        //console.log("pageId is ds"+ pageId)
+    return pageModel.findById(pageId)
+        .then(function (page) {
+          //  console.log("Page is ")
+          //  console.log(page);
+            var index = page.widgets.indexOf(widgetId);
+            page.widgets.splice(index, 1);
+           // console.log("pageModel here");
+            return page.save();
+        },function (errr) {
+            console.log(errr)
         })
 }

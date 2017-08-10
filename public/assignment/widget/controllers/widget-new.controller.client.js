@@ -23,12 +23,12 @@
             function newWidget(type) {
                 var widget = {};
                 console.log("type is "+type);
-                widget._id = (new Date()).getTime() + "";
+                //widget._id = (new Date()).getTime() + "";
                 widget.widgetType = type+"";
                 widget.pageId = model.pageId;
                 widgetService.createWidget(widget,model.pageId)
                     .then(function (response) {
-                        $location.url("/user/"+model.userId+"/website/"+model.websiteId+"/page/"+model.pageId+"/widget/"+widget._id);
+                        $location.url("/user/"+model.userId+"/website/"+model.websiteId+"/page/"+model.pageId+"/widget/"+response._id);
                     });
 
             }
