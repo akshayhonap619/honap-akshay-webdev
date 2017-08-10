@@ -28,30 +28,54 @@
 
 <div class="container-fluid my-header">
 
+    <form>
+        <div ng-show="model.error" class="alert alert-danger">
+            {{model.error}}
+        </div>
+
+        <label for="text">Text</label>
+        <input ng-model="model.widget.text"
+               class="form-control"
+               id="text"/>
+
+        <label for="rows">Rows</label>
+        <input ng-model="model.widget.rows"
+               class="form-control"
+               type="number"
+               id="rows"/>
+
+        <label for="placeholder">Placeholder</label>
+        <input ng-model="model.widget.placeholder"
+               class="form-control"
+               id="placeholder"/>
 
         <div class="form-group">
-            <label for="name">Name</label>
-            <input ng-model="model.widget.name"
-                   type="text"
-                   class="form-control"
-                   id="name"
-                   placeholder="Name"/>
-        </div>
-
-        <label for="name">HTML</label>
-        <div ng-model="model.widget.text"
-             text-angular
-             ta-toolbar="[['h1','h2','h3'],['bold','italics','underline','strikeThrough'],
-        ['ul','ol'],['justifyLeft','justifyCenter','justifyRight','justifyFull'],
-        ['indent','outdent'],['html']]">
+            <label for="formatted">Formatted</label>
+            <input ng-model="model.widget.formatted"
+                   type="checkbox"
+                   id="formatted"
+                   placeholder="Formatted">
         </div>
 
 
-        <a href="" ng-click="model.deleteevent()" class="btn btn-block btn-danger" role="button">Delete</a>
+        <a ng-click="model.deleteevent()"
+           class="btn btn-block btn-danger">
+            Delete
+        </a>
+
+
 
     </form>
 
+
+
+
+
+
 </div>
+
+
+
 
 
 <!-- Footer -->

@@ -73,6 +73,18 @@ function updateWidget(widgetId, newWidget) {
                     url : newWidget.url
                 })
     }
+
+    else if(newWidget.widgetType === "TEXT") {
+        return widgetModel
+            .update({_id:newWidget._id},
+                {
+                    widgetType: newWidget.widgetType,
+                    text : newWidget.text,
+                    rows : newWidget.rows,
+                    placeholder : newWidget.placeholder,
+                    formatted: newWidget.formatted
+                })
+    }
 }
 
 /*function createWidget(widget, pageId) {

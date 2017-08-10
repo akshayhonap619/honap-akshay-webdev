@@ -13,8 +13,11 @@ var widgetSchema = mongoose.Schema(
         text : String,
         url : String,
         widgetType: String,
+        placeholder: {type: String},
+        rows: {type: Number},
+        formatted: {type: Boolean},
         created : {type : Date, default : Date.now()},
-        order : Number//{type : Number, default: 0}
+        order : Number
     },{collection : 'widget'})
 
 module.exports = widgetSchema;

@@ -1,6 +1,33 @@
+<!DOCTYPE html>
 
 
-<div class="container-fluid">
+<!--Header -->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid my-container-header">
+        <div class="navbar-header">
+
+            <p class="navbar-text pull-left">
+                <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{model.widgetId}}" class="navbar-link">
+          <span class="glyphicon glyphicon-chevron-left pull-left">
+          </span>
+                </a>
+            </p>
+
+            <a class="navbar-brand m" href="#">
+                Widget Edit
+            </a>
+            <p class="navbar-text pull-right">
+                <a href="" ng-click="model.updateevent()" class="navbar-link">
+          <span class="glyphicon glyphicon-ok pull-right">
+          </span>
+                </a>
+            </p>
+        </div>
+    </div>
+</nav>
+
+
+<div class="container-fluid my-header">
     <div class="input-group">
         <input ng-model="searchText"
                type="text"
@@ -21,3 +48,8 @@
         </div>
     </div>
 </div>
+
+
+
+<!-- Footer -->
+<ng-include src="'user/views/footer.view.client.html'"></ng-include>
