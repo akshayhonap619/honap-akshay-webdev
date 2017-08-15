@@ -1,0 +1,27 @@
+.my-header{
+    margin-left: 250px;
+    margin-right: 250px;
+}
+
+.my-split{
+    width: 40%;
+    background-color: #66afe9;
+    float: left;
+
+
+}
+
+.my-split-2{
+    width: 40%;
+    background-color: #999999;
+    float: right;
+
+}
+
+.my-text-split{
+    margin: 30px;
+}
+
+.my-out-div{
+    float: left;
+}

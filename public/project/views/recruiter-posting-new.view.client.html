@@ -1,0 +1,36 @@
+<div class="container-fluid">
+
+    {{model.posting}}
+
+    <div class="alert alert-danger" >{{model.errorMessage}} Space</div>
+
+    <label for="title">Job Title</label>
+
+    <input class="form-control" type="text" name="title" id="title" ng-model="model.posting.jobTitle">
+
+    <label for="company"> Company</label>
+    <input class="form-control" type="text" name="company" id="company" ng-model="model.posting.company">
+
+    <label for="location"> Location</label>
+    <input class="form-control" type="text" name="location" id="location" ng-model="model.posting.location">
+
+    <label for="date"> Date of Posting</label>
+    <input class="form-control" type="text" name="date" id="date" ng-model="model.posting.date">
+
+    <label for="description"> Description</label>
+    <textarea id="description" rows="4" ng-model="model.posting.description" class="form-control"></textarea>
+
+    <label for="skills">Desired Skills</label>
+    <input class="form-control" type="text" name="date" id="skills" ng-model="model.posting.skills">
+
+
+    <label for="jobtype">Job Type</label>
+    <select id =jobtype ng-model="model.posting.jobType" class="form-control">
+        <option value="Internship">Internship</option>
+        <option value="Full-time">Full Time</option>
+    </select>
+
+
+    <a href="" role="button" ng-click="model.addJob()" class="btn btn-warning">Post</a>
+
+</div>

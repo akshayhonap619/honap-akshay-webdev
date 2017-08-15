@@ -1,0 +1,53 @@
+
+<div class="container-fluid my-header">
+
+    <div align="center" ng-show="model.errorMessage"  class="alert alert-danger">
+        {{model.errorMessage}}
+    </div>
+
+    <h1>Register</h1>
+
+    <div class="form-group my-header">
+        <label for="username">Username</label>
+        <input class="form-control"
+               type="text"
+               name="username"
+               id="username"
+               ng-model = "username"
+               placeholder="Username"/>
+
+        <label for="password">Password</label>
+        <input class="form-control"
+               type="password"
+               name="password"
+               id="password"
+               ng-model="password"
+               placeholder="Password"/>
+
+        <label for="verifypasssword">Verify Password</label>
+        <input class="form-control"
+               type="password"
+               name="verifypassword"
+               id="verifypasssword"
+               ng-model="password1"
+               placeholder="Verify Password"/>
+
+        <label for="role">Role</label>
+        <select ng-model="role" class="form-control" placeholder="Role" id="role">
+            <option value="student">Student</option>
+            <option value="recruiter">Recruiter</option>
+        </select>
+
+        <a class="btn btn-block btn-primary"
+           ng-click="model.register(username,password,password1,role)"
+           role="button">Register</a>
+
+
+        <a class="btn btn-block btn-danger"
+           href="#/login"
+           role="button">Cancel</a>
+
+
+    </div>
+</div>
+

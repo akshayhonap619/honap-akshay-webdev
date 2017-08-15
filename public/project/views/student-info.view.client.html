@@ -1,0 +1,111 @@
+<div class="container-fluid">
+<div>
+Photo
+</div>
+
+<div class="">
+<div class="">
+    <label for="firstname">First Name:</label>
+    <br>
+<input type="text" role id="firstname" name="firstname" class="form-control" ng-model="model.user.firstname">
+</div>
+
+    <div class="">
+        <label for="lastname">Last Name:</label>
+        <br>
+        <input type="text" role id="lastname" name="firstname" class="form-control" ng-model="model.user.lastname">
+    </div>
+
+</div>
+
+
+    <div>
+        <label for="summary"> Summary</label>
+        <textarea id="summary" rows="3" class="form-control" ng-model="model.user.summary"></textarea>
+    </div>
+<!-- Location Zip -->
+    <div>
+        <div class="">
+            <label for="country">Country</label>
+            <br>
+            <input type="text" role id="country" name="country" class="form-control" ng-model="model.user.country">
+        </div>
+
+        <div class="">
+            <label for="zip">ZIP</label>
+            <br>
+            <input type="text" role id="zip" name="zip" class="form-control" ng-model="model.user.zip">
+        </div>
+
+    </div>
+
+<!-- Work Exp -->
+
+<div>
+    <h4> Work Experiene #1 </h4>
+
+    <!--Company Position -->
+    <div>
+        <div class="">
+            <label for="company1">Company</label>
+            <br>
+            <input type="text" role id="company1" name="country" class="form-control" ng-model="model.user.workexp[0].company">
+        </div>
+
+        <div class="">
+            <label for="position1">Position</label>
+            <br>
+            <input type="text" role id="position1" name="zip" class="form-control" ng-model="model.user.workexp[0].position">
+        </div>
+
+    </div>
+
+    <div>
+        <label for="description1">Description: </label>
+
+       <textarea class="form-control" id="description1" name="description1" rows="4" ng-model="model.user.workexp[0].description">
+
+       </textarea>
+    </div>
+
+
+</div>
+
+
+  <!-- Work Exp # 2 -->
+    <div>
+        <h4> Work Experiene #2 </h4>
+
+        <!--Company Position -->
+        <div>
+            <div class="">
+                <label for="company2">Company</label>
+                <br>
+                <input type="text" role id="company2" name="country" class="form-control" ng-model="model.user.workexp[1].company">
+            </div>
+
+            <div class="">
+                <label for="position2">Position</label>
+                <br>
+                <input type="text" role id="position2" name="zip" class="form-control" ng-model="model.user.workexp[1].position">
+            </div>
+
+        </div>
+
+        <div>
+            <label for="description2">Description: </label>
+
+            <textarea class="form-control" id="description2" name="description1" rows="4" ng-model="model.user.workexp[1].description">
+
+       </textarea>
+        </div>
+
+
+    </div>
+
+
+
+<a href="" role="button" ng-click="model.click()">Click</a>
+
+
+</div>

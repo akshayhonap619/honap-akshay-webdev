@@ -4,37 +4,40 @@
     <meta charset="UTF-8">
     <title>Project Home Page</title>
 
+
+
+    <!-- ANgular -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.0/angular-route.js"></script>
 
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <script src="js/testController.js"></script>
+    <link href="css/style.css" rel="stylesheet">
+
+
+    <script src="js/app.js"></script>
+    <script src="js/config.js"></script>
+
+    <!--Controllers-->
+    <script src="js/controllers/testController.js"></script>
+    <script src="js/controllers/loginController.js"></script>
+    <script src="js/controllers/registerController.js"></script>
+
+    <script src="js/controllers/student-infoController.js"></script>
+    <script src="js/controllers/student-welcomeController.js"></script>
+    <script src="js/controllers/studentSearchController.js"></script>
+
+    <script src="js/controllers/recruiter-welcomeController.js"></script>
+    <script src="js/controllers/recruiter-posting-newController.js"></script>
+    <!--Services-->
+
+    <script src="js/services/jobsearch.service.client.js"></script>
+    <script src="js/services/userService.service.client.js"></script>
 
 
 </head>
 <body>
-    <h1>Project Home Page</h1>
-    <div class="container-fluid" ng-controller="searchController as model">
-    <form id="myForm" >
-        <label for="text">Search Keyword</label>
-        <input class="form-control" type="text" id="text" name="text" ng-model="text"/>
+  <div ng-view>
 
-
-
-              <input type="button" value="Submit" ng-click="model.searchJob(text)" class="btn btn-block btn-danger"/>
-
-
-
-
-
-        <ul class="list-group">
-            <li class="list-group-item" ng-repeat = "result in model.results">
-                {{result}}
-            </li>
-        </ul>
-
-
-    </form>
-    </div>
+  </div>
 </body>
 </html>
