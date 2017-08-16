@@ -29,13 +29,19 @@
                 templateUrl : "views/student-info.view.client.html",
                 controller : "studentProfileController as model"
             })
-            .when('/student/:userId', {
+            .when('/student', {
                 templateUrl : "views/student-profile.view.client.html",
-                controller : "studentWelcomeController as model"
+                controller : "studentWelcomeController as model",
+                resolve : {
+                    check : checkLogin
+                }
             })
-            .when('/recruiter/:userId', {
+            .when('/recruiter', {
                 templateUrl : "views/recruiter-profile.view.client.html",
-                controller : "recruiterWelcomeController as model"
+                controller : "recruiterWelcomeController as model",
+                resolve : {
+                    check : checkLogin
+                }
             })
 
             .when('/recruiter/:userId/posting/search', {
@@ -52,9 +58,23 @@
                 templateUrl : "views/student-search.view.client.html",
                 controller : "studentSearchController as model"
             })
+            .when('/recruiter/:userId/posting/:postingId/applicants', {
+                templateUrl : "views/recruiter-applicant.view.client.html",
+                controller : "applicantViewController as model"
+            })
+    }
+    function checkLogin(userService, $q, $location) {
+        var defered = $q.defer()
+        userService.checkLogin()
+            .then(function (user) {
+                if(user=='0'){
+                    defered.reject();
+                    $location.url('/login');
+                }else{
+                    defered.resolve(user);
+                }
 
-
-
-
+            });
+        return defered.promise;
     }
 })();

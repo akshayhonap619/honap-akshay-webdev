@@ -12,6 +12,8 @@
         this.deleteUser = deleteUser;
         this.updateUser = updateUser;
         this.getUserById = getUserById;
+        this.login = login;
+        this.checkLogin = checkLogin;
 
         function getUserByUsernamePass(user) {
             var url = "/api/job/user?username=" + user.username + "&password=" + user.password + "&role=" + user.role;
@@ -71,5 +73,30 @@
                 })
         }
 
+        function login(username,password) {
+            var user = {username : username, password : password};
+            var url = "/api/job/user/login";
+
+            return $http.post(url , user)
+                .then(function (response) {
+                    //console.log(response);
+                    //console.log("response in server");
+                    return response.data;
+                },function (error) {
+                    return "Unauthorized";
+                })
+
+        }
+        
+        function checkLogin() {
+            return $http.get('/api/job/checkLogin')
+                .then(function (response) {
+                   // console.log(response);
+                    return response.data;
+                })
+        }
+
     }
+
+
 })();

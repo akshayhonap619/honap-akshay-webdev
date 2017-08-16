@@ -5,17 +5,41 @@
     angular.module("JobApp")
         .controller("studentSearchController",studentSearchController)
 
-    function studentSearchController($location) {
+    function studentSearchController($location,jobSearchService,$routeParams) {
         var model= this;
 
+        model.userId = $routeParams.userId;
         model.searchJob = searchJob;
+        model.applyForJob = applyForJob;
 
 
-        function searchJob(text,country,skill) {
-            
+        console.log(model.userId);
+
+        function searchJob(jobTitle,company,location,country,skill,jobType) {
+            console.log(jobTitle+"     "+company+"     "+location+"         "+country+"         "+skill+"    "+jobType);
+
+            if(typeof jobTitle =='undefined' || jobTitle=="" || jobTitle==null){
+                model.errorMessage="Search keyword cannot be empty";
+                return;
+            }
+
+            var url = '/api/job/student/:userId/posting/search?jobTitle='+jobTitle+'&company='+company+'&location='+location+'&country='
+                +country+'&skill='+skill;
+
+
+            jobSearchService.searchStudentPosting(url)
+                .then(function (response) {
+                    model.results = response;
+                })
         }
 
 
+        function applyForJob(posting) {
+            jobSearchService.applyForJob(posting._id, model.userId)
+                .then(function (response) {
+                    model.appMessage = "You have successfully applied for "+posting.jobTitle;
+                })
+        }
     }
 
 })();

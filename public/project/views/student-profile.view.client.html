@@ -6,4 +6,14 @@
 
     <a href="#/student/{{model.userId}}/posting/search" role="button" class="btn btn-warning" >Search Available Jobs</a>
 
+
+    <a role="button" class="btn btn-info" ng-click="model.getApplicationsForStudent()">Get Applications</a>
+
+
+    <ul class="list-group">
+    <li ng-repeat="apps in model.applications" class="list-group-item">
+        {{apps}}
+        <span class="btn btn-warning">{{apps.status}}</span>
+    </li>
+    </ul>
 </div>

@@ -3,15 +3,23 @@
 <div class="container">
 
     <div role="alert" ng-show="model.errorMessage" class="alert alert-danger" align="center">{{model.errorMessage}}</div>
+    <div role="alert" ng-show="model.appMessage" class="alert alert-info" align="center">{{model.appMessage}}</div>
 
     <form id="myForm" >
         <label for="text">Search Keyword</label>
-        <input class="form-control" type="text" id="text" name="text" ng-model="text"/>
+        <input class="form-control" type="text" id="text" name="text" ng-model="jobTitle"/>
+
+        <label for="company">Company</label>
+        <input class="form-control" type="text" id="company" name="text" ng-model="company"/>
+
+        <label for="location">Location</label>
+        <input class="form-control" type="text" id="location" name="text" ng-model="location"/>
+
         <label for="country">Country</label>
         <select ng-model="country" id="country" class="form-control">
-            <option value="us">United States</option>
-            <option value="in">India</option>
-            <option value="cn">Canada</option>
+            <option value="united states">United States</option>
+            <option value="india">India</option>
+            <option value="canada">Canada</option>
         </select>
         {{text}}
         {{country}}
@@ -19,9 +27,16 @@
         <label for="skill">Skill</label>
         <input class="form-control" type="text" id="skill" name="skill" ng-model="skill">
 
+        <label for="job-type">Job Type</label>
+        <select ng-model="jobType" id="job-type" class="form-control">
+            <option value="Internship">Internship</option>
+            <option value="Full-time">Full-time</option>
+
+        </select>
 
 
-        <input type="button" value="Submit" ng-click="model.searchJob(text,country,skill)" class="btn btn-block btn-danger"/>
+
+        <input type="button" value="Submit" ng-click="model.searchJob(jobTitle,company,location,country,skill,jobType)" class="btn btn-block btn-danger"/>
 
 
 
@@ -37,7 +52,7 @@
 
                 <h3> Location</h3>
                 <div>{{result.location}}</div>
-                <p align="right"> <button class="btn btn-warning" ng-click="model.saveJob(result)">Apply</button> </p>
+                <p align="right"> <button class="btn btn-warning" ng-click="model.applyForJob(result)">Apply</button> </p>
             </li>
 
         </ul>

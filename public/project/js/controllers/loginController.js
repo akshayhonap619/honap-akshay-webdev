@@ -15,15 +15,14 @@
 
         function login(user) {
 
-            userService.getUserByUsernamePass(user)
+            userService.login(user.username, user.password)
                 .then(function (response) {
-                    if(response!= null){
-                        console.log(response.role)
-                        $location.url('/'+response.role+'/'+response._id);
-                    }
+                        if(response =="Unauthorized"){
+                                model.errorMessage = "Invalid username or password"
+                        }
                     else{
-                        model.errorMessage="Invalid Username or Password";
-                    }
+                            $location.url('/'+response.role);
+                        }
                 })
         }
 

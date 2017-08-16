@@ -3,16 +3,51 @@
  */
 var app = require('../../express')
 
+var passport = require('passport')
+var LocalStrategy = require('passport-local').Strategy;
+passport.use(new LocalStrategy(localStrategy))
+passport.serializeUser(serializeUser);
+passport.deserializeUser(deserializeUser);
+
+
+
 var userModel = require('../model/user/userModel')
 
-app.get('/api/job/user',findUser);
+app.get('/api/job/user',findUser  );
 
 app.get("/api/job/user/:userId", findUserById);
 app.post("/api/job/user", createUser);
 app.put("/api/job/user/:userId", updateUser);
 app.delete("/api/job/user/:userId", deleteUser);
+//Authentication
+app.post('/api/job/user/login',passport.authenticate('local'),login)
+app.get('/api/job/checkLogin', checkLogin)
 
 
+function localStrategy(username, password, done) {
+    userModel.getUserByCredentials(username,password)
+        .then(
+            function(user) {
+                if (!user) {
+                    return done(null, false);
+                }
+                return done(null, user);
+            },
+            function(err) {
+                if (err) { return done(err); }
+            }
+        );
+}
+
+function login(req,res){
+    var user = req.user;
+    res.send(user);
+}
+
+function checkLogin(req, res) {
+
+    res.send(req.isAuthenticated() ? req.user : '0');
+}
 
 function getUserByUsernamePass(req, res) {
     console.log("Here");
@@ -162,3 +197,20 @@ function findUserByUsernamePassword(username, password) {
 
 }
 */
+
+function serializeUser(user, done) {
+    done(null, user);
+}
+
+function deserializeUser(user, done) {
+    userModel
+        .findUserById(user._id)
+        .then(
+            function(user){
+                done(null, user);
+            },
+            function(err){
+                done(err, null);
+            }
+        );
+}

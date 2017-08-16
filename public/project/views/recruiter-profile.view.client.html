@@ -15,7 +15,7 @@
     <ul class="list-group">
     <li ng-repeat="posting in model.postings" class="list-group-item">
         {{posting}}
-        <button class="btn btn-success">View Applicants</button>
+        <a role="button" href="#/recruiter/{{model.userId}}/posting/{{posting._id}}/applicants" class="btn btn-success" >View Applicants</a>
         <button class="btn btn-warning">Edit Posting</button>
         <button class="btn btn-danger" ng-click="model.deletePosting(posting._id)" >Delete</button>
     </li>

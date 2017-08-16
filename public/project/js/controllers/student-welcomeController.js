@@ -6,12 +6,18 @@
     angular.module("JobApp")
         .controller("studentWelcomeController", studentWelcomeController)
 
-    function studentWelcomeController($location, userService, $routeParams, jobSearchService) {
+    function studentWelcomeController($location, userService, $routeParams, jobSearchService,check) {
         var model = this;
-         model.userId = $routeParams.userId;
+         model.userId = check._id;     //$routeParams.userId;
         
         //model.searchJob = searchJob;
+
+
+
+        model.getApplicationsForStudent = getApplicationsForStudent;
+
          console.log(model.userId);
+
         init();
 
         function init() {
@@ -20,7 +26,13 @@
                     model.user = response;
                 })
         }
-        
+        function getApplicationsForStudent() {
+            console.log("init")
+            jobSearchService.getApplicationsForStudent(model.userId)
+                .then(function (response) {
+                    model.applications = response;
+                })
+        }
 
     }
 })();

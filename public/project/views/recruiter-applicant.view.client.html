@@ -1,0 +1,26 @@
+<div class="container-fluid">
+
+
+
+<br>
+    <br>
+
+    <div ng-repeat="app in model.posting.applicants">
+        {{app}}
+
+        <div ng-switch="app.status">
+            <div ng-switch-when="Pending">
+                <div class="btn alert alert-warning">Pending</div>
+                <div class="btn btn btn-info" ng-click="model.decision('Accepted')">View Profile</div>
+                <br>
+                <div class="btn btn btn-success" ng-click="model.decision(app._id,'Accepted')">Accept</div>
+                <div class="btn btn btn-danger" ng-click="model.decision(app._id,'Rejected')">Reject</div>
+            </div>
+
+
+        </div>
+
+    </div>
+<hr/>
+    {{model.posting}}
+</div>
