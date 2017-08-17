@@ -12,7 +12,7 @@ var userModel =  mongoose.model('userModel', userSchema);
 userModel.createUser = createUser;
 userModel.getUserByCredentials = getUserByCredentials;
 userModel.findUserById = findUserById;
-
+userModel.findUserByGoogleId = findUserByGoogleId;
 module.exports = userModel;
 
 
@@ -28,4 +28,8 @@ function getUserByCredentials(username,password) {
 
 function findUserById(userId) {
     return userModel.findById({_id : userId});
+}
+
+function findUserByGoogleId(googleId) {
+    return userModel.findOne({'google.id' : googleId})
 }

@@ -9,6 +9,11 @@ var userSchema = mongoose.Schema(
         username : String,
         password : String,
         role : String,
+        email : String,
+        google : {
+            id : String,
+            token : String
+        }
     }, {collection : "projectUser"}
 )
 
