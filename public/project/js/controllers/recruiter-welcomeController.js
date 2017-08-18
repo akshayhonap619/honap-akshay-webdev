@@ -23,6 +23,7 @@
                 .then(function (response) {
                     model.user = response;
                 })
+            getPosting();
         }
 
         function deleteUser() {

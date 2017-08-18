@@ -40,8 +40,8 @@
 
             <ul class="nav navbar-nav">
                 <li ng-show="login"><a href="#/{{userType}}/posting/search">Search Jobs</a></li>
-                <li ng-show="login && userType=='student'"><a href="#">Applications</a></li>
-                <li ng-show="login && userType=='recruiter'"><a href="#">Your Posting</a></li>
+                <li ng-show="login && userType=='student'"><a href="#/student/applications">Applications</a></li>
+                <li ng-show="login && userType=='recruiter'"><a href="#/recruiter/applications">Your Posting</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li ng-show="login"><a>Hi, {{name}}</a></li>

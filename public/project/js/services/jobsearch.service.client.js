@@ -130,7 +130,7 @@
 
             function getApplicationsForStudent(userId) {
                 var url = '/api/job/student/'+userId+'/applications';
-
+                console.log(url)
                 return $http.get(url)
                     .then(function (response) {
                         return response.data;

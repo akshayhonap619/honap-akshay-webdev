@@ -20,10 +20,15 @@
         init();
 
         function init() {
+            console.log("here")
             userService.getUserById(model.userId)
                 .then(function (response) {
                     model.user = response;
+
                 })
+
+            getApplicationsForStudent();
+
         }
 
         function deleteUser() {
@@ -41,7 +46,7 @@
         };
 
         function getApplicationsForStudent() {
-            console.log("init")
+           // console.log("init")
             jobSearchService.getApplicationsForStudent(model.userId)
                 .then(function (response) {
                     model.applications = response;

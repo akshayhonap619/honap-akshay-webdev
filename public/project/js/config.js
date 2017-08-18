@@ -77,6 +77,23 @@
                     check : checkLogin
                 }
             })
+
+            .when('/student/applications', {
+                templateUrl : "views/student-application.view.client.html",
+                controller : "studentWelcomeController as model",
+                resolve : {
+                    check : checkLogin
+                }
+            })
+
+            .when('/recruiter/applications', {
+                templateUrl : "views/recruiter-application.view.client.html",
+                controller : "recruiterWelcomeController as model",
+                resolve : {
+                    check : checkLogin
+                }
+            })
+
             .when('/recruiter/posting/:postingId/applicants', {
                 templateUrl : "views/recruiter-applicant.view.client.html",
                 controller : "applicantViewController as model",
