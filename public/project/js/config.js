@@ -10,12 +10,11 @@
     function configuration($routeProvider) {
         $routeProvider
             .when('/', {
-                templateUrl : "views/recruiter-search.view.client.html",
-                controller : "searchController as model"
+                templateUrl : "views/homePage.view.client.html"
             })
-            .when('/home', {
-                templateUrl : "views/recruiter-search.view.client.html",
-                controller : "searchController as model"
+            .when('/search', {
+                templateUrl : "views/searchPage.view.client.html",
+                controller : "searchPageController as model"
             })
             .when('/login', {
                 templateUrl : "views/login.view.client.html",
@@ -25,9 +24,12 @@
                 templateUrl : "views/register.view.client.html",
                 controller : "registerController as model"
             })
-            .when('/profile', {
+            .when('/student/profile', {
                 templateUrl : "views/student-info.view.client.html",
-                controller : "studentProfileController as model"
+                controller : "studentProfileController as model",
+                resolve : {
+                    check : checkLogin
+                }
             })
             .when('/student', {
                 templateUrl : "views/student-profile.view.client.html",
@@ -44,26 +46,69 @@
                 }
             })
 
-            .when('/recruiter/:userId/posting/search', {
+            .when('/recruiter/posting/search', {
                 templateUrl : "views/recruiter-search.view.client.html",
-                controller : "searchController as model"
+                controller : "searchController as model",
+                resolve : {
+                    check : checkLogin
+                }
             })
 
-            .when('/recruiter/:userId/posting/new', {
+            .when('/recruiter/posting/new', {
                 templateUrl : "views/recruiter-posting-new.view.client.html",
-                controller : "recruiterNewPostController as model"
+                controller : "recruiterNewPostController as model",
+                resolve : {
+                    check : checkLogin
+                }
             })
 
-            .when('/student/:userId/posting/search', {
-                templateUrl : "views/student-search.view.client.html",
-                controller : "studentSearchController as model"
+            .when('/recruiter/posting/:postingId/edit', {
+                templateUrl : "views/recruiter-posting-edit.view.client.html",
+                controller : "recruiterNewPostController as model",
+                resolve : {
+                    check : checkLogin
+                }
             })
-            .when('/recruiter/:userId/posting/:postingId/applicants', {
+
+            .when('/student/posting/search', {
+                templateUrl : "views/student-search.view.client.html",
+                controller : "studentSearchController as model",
+                resolve : {
+                    check : checkLogin
+                }
+            })
+            .when('/recruiter/posting/:postingId/applicants', {
                 templateUrl : "views/recruiter-applicant.view.client.html",
-                controller : "applicantViewController as model"
+                controller : "applicantViewController as model",
+                resolve : {
+                    check : checkLogin
+                }
+            })
+
+            .when('/admin', {
+                templateUrl : "views/admin/admin-profile.view.client.html",
+                controller : "adminProfileController as model",
+                resolve : {
+                    check : checkLogin
+                }
+            })
+            .when('/admin/add', {
+                templateUrl : "views/admin/admin-adduser.view.client.html",
+                controller : "adminAddController as model",
+                resolve : {
+                    check : checkLogin
+                }
+            })
+
+            .when('/admin/update/:userId', {
+                templateUrl : "views/admin/admin-update.view.client.html",
+                controller : "adminUpdateController as model",
+                resolve : {
+                    check : checkLogin
+                }
             })
     }
-    function checkLogin(userService, $q, $location) {
+    function checkLogin(userService, $q, $location, $rootScope) {
         var defered = $q.defer()
         userService.checkLogin()
             .then(function (user) {
@@ -71,6 +116,7 @@
                     defered.reject();
                     $location.url('/login');
                 }else{
+                    $rootScope.$emit("login", {user:user});
                     defered.resolve(user);
                 }
 

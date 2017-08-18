@@ -1,27 +1,24 @@
 .my-header{
-    margin-left: 250px;
-    margin-right: 250px;
+    margin-top: 60px;
 }
 
-.my-split{
-    width: 40%;
-    background-color: #66afe9;
-    float: left;
 
-
+.blue-div{
+    background-color: #2DAAE4;
 }
 
-.my-split-2{
-    width: 40%;
-    background-color: #999999;
-    float: right;
+body{
+    background: url("../images/background1.jpg");
+}
+.container{
+    background-color: #eeeeee;
 
 }
 
-.my-text-split{
-    margin: 30px;
+.dropdown:hover .dropdown-menu{
+        display: block !important;
 }
 
-.my-out-div{
-    float: left;
+a{
+    cursor: pointer;
 }

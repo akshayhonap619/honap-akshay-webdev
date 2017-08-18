@@ -1,13 +1,47 @@
-<div class="container-fluid">
+
+
+
+<div class="">
 
 <div class="alert alert-info"> Welcome Back {{model.user.username}} </div>
 
-    {{model.user}}
-
-    <a href="#/student/{{model.userId}}/posting/search" role="button" class="btn btn-warning" >Search Available Jobs</a>
+    <a href="#/student/posting/search" role="button" class="btn btn-warning" >Search Available Jobs</a>
 
 
     <a role="button" class="btn btn-info" ng-click="model.getApplicationsForStudent()">Get Applications</a>
+
+<br>
+    <label for="Username">Username</label>
+    <input class="form-control"
+           type="text"
+           name="Username"
+           ng-model="model.user.username"
+           id="Username"
+           placeholder="Username"/>
+
+    <label for="email">Email</label>
+    <input class="form-control"
+           type="email"
+           name="email"
+           ng-model="model.user.email"
+           id="email"
+           placeholder="abc@xyz.com"/>
+
+    <label for="firstname">First Name</label>
+    <input class="form-control"
+           type="text"
+           name="firstname"
+           ng-model="model.user.firstName"
+           id="firstname"
+           placeholder="Bob"/>
+
+    <label for="lastname">Last Name</label>
+    <input class="form-control"
+           type="text"
+           name="lastname"
+           ng-model="model.user.lastName"
+           id="lastname"
+           placeholder="Martin"/>
 
 
     <ul class="list-group">
@@ -16,4 +50,13 @@
         <span class="btn btn-warning">{{apps.status}}</span>
     </li>
     </ul>
+
+    <div class="btn btn-block btn-danger" ng-click="model.deleteUser()">Unregister</div>
+
+    <div class="btn btn-block btn-warning" ng-click="model.logoutUser()">Logout</div>
+
+    <a href="#/student/profile" class="btn btn-block btn-primary">Update Resume</a>
+
+    <div class="btn btn-block btn-info" ng-click="model.updateUser()">Update Profile</div>
+
 </div>

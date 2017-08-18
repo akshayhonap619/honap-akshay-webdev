@@ -8,6 +8,8 @@ var postingModel = require('./../model/posting/postingModel');
 
 app.put('/api/job/recruiter/:userId/posting/new',addJob);
 
+app.post('/api/job/recruiter/:userId/posting/edit',updateJob);
+
 app.get('/api/job/recruiter/:userId/posting', getPostingsForRecruiter);
 
 app.delete('/api/job/posting/:postingId', deletePosting);
@@ -31,6 +33,20 @@ function addJob(req,res) {
     postingModel.createPosting(userId,job)
         .then(function (response) {
             console.log(response);
+            res.send(response);
+        });
+}
+
+
+function updateJob(req,res) {
+    var userId = req.params.userId;
+    var job = req.body;
+
+    //console.log(userId);
+    //console.log(job)
+    postingModel.updatePosting(userId,job)
+        .then(function (response) {
+         //   console.log(response);
             res.send(response);
         });
 }
@@ -132,6 +148,8 @@ function applyForJob(req,res) {
 
 function getPostingById(req, res) {
     var postingId = req.params.postingId;
+
+    console.log("p id is "+postingId)
 
     postingModel.getPostingById(postingId)
         .then(function (response) {

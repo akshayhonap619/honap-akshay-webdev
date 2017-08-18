@@ -13,20 +13,40 @@ postingModel.getPostingById = getPostingById;
 postingModel.getPostingsForRecruiter = getPostingsForRecruiter;
 postingModel.deletePosting = deletePosting;
 postingModel.getallPostings = getallPostings;
+postingModel.updatePosting = updatePosting;
 
 postingModel.addApplicant = addApplicant;
 postingModel.jobDecision = jobDecision;
 module.exports = postingModel;
 
 
+function updatePosting(userId,posting) {
+
+    return postingModel.update({_id : posting._id},
+        {$set : {
+            jobTitle : posting.jobTitle,
+            company : posting.company,
+            location : posting.location,
+            date : posting.date,
+            jobType : posting.jobType,
+            skills : posting.skills,
+            description : posting.description
+        }}
+    )
+
+}
+
 function createPosting(userId,posting){
    // posting.recruiter = userId;
-    console.log(posting);
+    //console.log(posting);
     return postingModel.create(posting);
 }
 
 function getPostingById(userId) {
 
+
+   // console.log(postingModel.findById({_id : userId}));
+   // console.log("p model")
     return postingModel.findById({_id : userId})
 }
 
@@ -48,14 +68,14 @@ function addApplicant(postingId, userId) {
     return postingModel.findById({_id : postingId})
         .then(function (posting) {
 
-            console.log('posting is ')
-            console.log(posting)
+            //console.log('posting is ')
+            //console.log(posting)
 
 
             var applicant = {_id : userId , status : "Pending"};
-            console.log("applicanr is");
-            console.log(applicant);
-            console.log('in model')
+            //console.log("applicanr is");
+            //console.log(applicant);
+            //console.log('in model')
             posting.applicants.push(applicant);
 
             return posting.save();

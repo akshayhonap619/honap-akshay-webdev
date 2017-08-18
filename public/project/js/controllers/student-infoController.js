@@ -7,25 +7,27 @@
         .controller("studentProfileController", studentProfileController)
     
     
-    function studentProfileController($location, userService, $routeParams) {
+    function studentProfileController($location, userService, $routeParams, check) {
         
         var model = this;
-        model.userId =414;
+        model.userId = check._id;
         model.click = click;
 
-        //init();
-        
+        init();
+        console.log(model.userId +"   us")
         function init() {
 
             userService.getUserById(model.userId)
                 .then(function (response) {
-                    model.user = response;
+                    model.user = response.profile;
+                    console.log("here")
+                    console.log(response)
                 })
 
         }
         
         function click() {
-            userService.updateUser(model.userId, model.user)
+            userService.updateProfile(model.userId, model.user)
                 .then(function (response) {
                     console.log("response from server");
                 })

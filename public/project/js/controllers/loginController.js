@@ -6,7 +6,7 @@
         .controller("loginController", loginController)
 
 
-    function loginController($location,userService) {
+    function loginController($location,userService, $rootScope) {
         var model = this;
 
             model.errorMessage ="";
@@ -21,6 +21,7 @@
                                 model.errorMessage = "Invalid username or password"
                         }
                     else{
+                            $rootScope.$emit("login", {user:response})
                             $location.url('/'+response.role);
                         }
                 })

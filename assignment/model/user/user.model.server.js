@@ -11,6 +11,7 @@ var userModel =  mongoose.model('UserModel', userSchema );
 userModel.createUser = createUser;
 userModel.findUserById = findUserById;
 userModel.findUserByUsernamePassword = findUserByUsernamePassword;
+userModel.findUserByUsernameOnly = findUserByUsernameOnly;
 userModel.deleteUser = deleteUser;
 userModel.updateUser = updateUser;
 userModel.findUserByUsernameOnly = findUserByUsernameOnly;
@@ -46,6 +47,7 @@ function updateUser(userId, user) {
 }
 
 function findUserByUsernameOnly(username) {
+    console.log("Here");
     return userModel.findOne({username: username});
 }
 

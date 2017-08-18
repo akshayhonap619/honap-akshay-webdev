@@ -7,14 +7,14 @@
     angular.module("JobApp")
         .controller("searchController",searchController);
 
-    function searchController($location, $sce, jobSearchService, $routeParams) {
+    function searchController($location, $sce, jobSearchService, $routeParams,check) {
 
         var model = this;
         model.searchJob = searchJob;
         model.addJob = addJob;
         model.saveJob  = saveJob;
 
-        model.userId = $routeParams.userId;
+        model.userId = check._id;
 
         function searchJob(text,country,skill) {
 

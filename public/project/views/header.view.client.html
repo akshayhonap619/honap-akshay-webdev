@@ -1,0 +1,57 @@
+<!--
+<nav class="navbar navbar-default navbar-fixed-top ">
+    <div class="container-fluid my-container-header">
+        <div class="navbar-header">
+
+            <p class="navbar-text pull-left">
+                <a href="#/user/{{model.userId}}" class="navbar-link">
+          <span class="glyphicon glyphicon-chevron-left pull-left">
+          </span>
+                </a>
+            </p>
+            <a class="navbar-brand m" href="#">
+                Websites
+            </a>
+            <p class="navbar-text pull-right">
+                <a href="#/user/{{model.userId}}/website/new" class="navbar-link">
+          <span class="glyphicon glyphicon-plus pull-right">
+          </span>
+                </a>
+            </p>
+        </div>
+    </div>
+</nav>
+-->
+<nav class="navbar navbar-default" ng-controller="headerController">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header" ng-init="collapsed = true">
+            <button type="button" class="navbar-toggle collapsed" ng-click="collapsed = !collapsed">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" >LinkedIn</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="navbar-collapse" id="bs-example-navbar-collapse-1" ng-class="{'collapse': collapsed}">
+
+            <ul class="nav navbar-nav">
+                <li ng-show="login"><a href="#/{{userType}}/posting/search">Search Jobs</a></li>
+                <li ng-show="login && userType=='student'"><a href="#">Applications</a></li>
+                <li ng-show="login && userType=='recruiter'"><a href="#">Your Posting</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li ng-show="login"><a>Hi, {{name}}</a></li>
+                <li ng-show="login"><a href="#/{{userType}}">Profile</a></li>
+                <li ng-show="login && userType=='student'"><a href="#/{{userType}}/profile">Resume</a></li>
+                <li ng-show="!login"><a href="#/login">Login</a></li>
+                <li ng-show="!login"><a href="#/register">Register</a></li>
+                <li ng-show="login && userType=='student'"><a ng-click="studentlogout()">logout</a></li>
+                <li ng-show="login && userType=='recruiter'"><a ng-click="recruiterlogout()">logout</a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>

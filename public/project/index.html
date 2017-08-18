@@ -2,6 +2,7 @@
 <html lang="en" ng-app="JobApp">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
     <title>Project Home Page</title>
 
 
@@ -11,14 +12,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.0/angular-route.js"></script>
 
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link href="css/style.css" rel="stylesheet">
 
 
     <script src="js/app.js"></script>
     <script src="js/config.js"></script>
 
     <!--Controllers-->
+    <script src="js/controllers/common/homepageController.js"></script>
+
     <script src="js/controllers/testController.js"></script>
     <script src="js/controllers/loginController.js"></script>
     <script src="js/controllers/registerController.js"></script>
@@ -30,16 +33,31 @@
     <script src="js/controllers/recruiter-welcomeController.js"></script>
     <script src="js/controllers/recruiter-posting-newController.js"></script>
     <script src="js/controllers/recruiter-applicant-view.view.controller.js"></script>
+
+    <script src="js/controllers/admin/admin-profileController.js"></script>
+    <script src="js/controllers/admin/admin-addUserController.js"></script>
+    <script src="js/controllers/admin/admin-updateController.js"></script>
+
+    <script src="js/controllers/common/headerController.js"></script>
     <!--Services-->
 
     <script src="js/services/jobsearch.service.client.js"></script>
     <script src="js/services/userService.service.client.js"></script>
+    <script src="js/services/adminService.service.client.js"></script>
 
 
 </head>
 <body>
-  <div ng-view>
 
-  </div>
+    <div ng-include="'views/header.view.client.html'"></div>
+    <div class="container">
+
+        <div ng-view>
+
+        </div>
+    </div>
+
+
+
 </body>
 </html>

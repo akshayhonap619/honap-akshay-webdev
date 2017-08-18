@@ -8,7 +8,7 @@
         function jobSearchService($http) {
             this.searchJobs = searchJobs;
             this.addJob = addJob;
-
+            this.updateJob = updateJob;
             this.savePosting = savePosting;
             this.sendPosting = sendPosting;
 
@@ -24,6 +24,7 @@
 
             this.applyForJob = applyForJob;
             this.jobDecision = jobDecision;
+
 
             this.getApplicationsForStudent = getApplicationsForStudent;
 
@@ -48,6 +49,16 @@
                     })
             }
 
+
+            function updateJob(userId,result) {
+                result.recruiter = userId;
+                var url = '/api/job/recruiter/'+userId+'/posting/edit';
+                console.log(result);
+                return $http.post(url,result)
+                    .then(function (response) {
+                        return response.data;
+                    })
+            }
 
             function getPostingsForRecruiter(userId) {
                 var url = '/api/job/recruiter/'+userId+'/posting'

@@ -5,10 +5,10 @@
     angular.module("JobApp")
         .controller("studentSearchController",studentSearchController)
 
-    function studentSearchController($location,jobSearchService,$routeParams) {
+    function studentSearchController($location,jobSearchService,$routeParams,check, $anchorScroll) {
         var model= this;
 
-        model.userId = $routeParams.userId;
+        model.userId = check._id;
         model.searchJob = searchJob;
         model.applyForJob = applyForJob;
 
@@ -37,6 +37,7 @@
         function applyForJob(posting) {
             jobSearchService.applyForJob(posting._id, model.userId)
                 .then(function (response) {
+                    $anchorScroll();
                     model.appMessage = "You have successfully applied for "+posting.jobTitle;
                 })
         }

@@ -6,3 +6,4 @@ require('./service/recruiterService')
 
 require('./service/userService')
 
+require('./service/adminService')

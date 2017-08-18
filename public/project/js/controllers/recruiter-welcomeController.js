@@ -5,12 +5,16 @@
     angular.module("JobApp")
         .controller("recruiterWelcomeController", recruiterWelcomeController)
 
-    function recruiterWelcomeController($location, userService, $routeParams,  jobSearchService, check) {
+    function recruiterWelcomeController($location, userService, $routeParams,  jobSearchService, check, $rootScope) {
         var model = this;
         model.userId = check._id;  //$routeParams.userId;
 
+        model.deleteUser = deleteUser;
         model.getPosting = getPosting;
         model.deletePosting = deletePosting;
+        model.logoutUser = logoutUser;
+        model.updateUser = updateUser;
+
 
         init();
 
@@ -18,6 +22,13 @@
             userService.getUserById(model.userId)
                 .then(function (response) {
                     model.user = response;
+                })
+        }
+
+        function deleteUser() {
+            userService.deleteUser(model.userId)
+                .then(function (response) {
+                    $location.url("/login");
                 })
         }
 
@@ -30,6 +41,20 @@
                 })
 
         }
+
+        function logoutUser() {
+            userService.logoutUser()
+                .then(function (response) {
+                    $location.url('#/login')
+                })
+        }
+
+        function updateUser() {
+            userService.updateUser(model.userId,model.user)
+                .then(function (response) {
+                    $location.url('#/student');
+                })
+        }
         
         function deletePosting(postingId) {
             console.log(postingId)
@@ -39,6 +64,11 @@
                 })
             
         }
+
+        $rootScope.$on("recruiterlogout", function(){
+            logoutUser();
+        });
+
 
     }
 })();

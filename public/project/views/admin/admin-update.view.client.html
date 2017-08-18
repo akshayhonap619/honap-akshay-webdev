@@ -1,0 +1,36 @@
+<label for="Username">Username</label>
+<input class="form-control"
+       type="text"
+       name="Username"
+       ng-model="model.user.username"
+       id="Username"
+       placeholder="Username"/>
+
+<label for="email">Email</label>
+<input class="form-control"
+       type="email"
+       name="email"
+       ng-model="model.user.email"
+       id="email"
+       placeholder="abc@xyz.com"/>
+
+<label for="firstname">First Name</label>
+<input class="form-control"
+       type="text"
+       name="firstname"
+       ng-model="model.user.firstName"
+       id="firstname"
+       placeholder="Bob"/>
+
+<label for="lastname">Last Name</label>
+<input class="form-control"
+       type="text"
+       name="lastname"
+       ng-model="model.user.lastName"
+       id="lastname"
+       placeholder="Martin"/>
+
+
+<a class="btn btn-block btn-primary" ng-click="model.updateUser()">Update User</a>
+
+<a href="#/admin" class="btn btn-block btn-danger">Back</a>

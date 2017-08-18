@@ -6,10 +6,10 @@
     angular.module("JobApp")
         .controller("applicantViewController",applicantViewController)
 
-    function applicantViewController($routeParams, jobSearchService) {
+    function applicantViewController($routeParams, jobSearchService, check) {
         var model = this;
 
-        model.userId = $routeParams.userId;
+        model.userId = check._id;
         model.postingId = $routeParams.postingId;
         model.decision = decision;
 

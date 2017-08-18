@@ -1,0 +1,86 @@
+<div role="alert" ng-show="model.errorMessage" class="alert alert-danger" align="center">{{model.errorMessage}}</div>
+<div role="alert" ng-show="model.appMessage" class="alert alert-info" align="center">{{model.appMessage}}</div>
+<h2>Search Page</h2>
+<form id="myForm">
+    <div class="row form-group">
+
+        <div class="col-sm-4">
+            <label for="text">Search Keyword</label>
+            <input type="text" class="form-control" id="text" ng-model="jobTitle">
+        </div>
+        <div class="col-sm-4">
+            <label for="company">Company</label>
+            <input class="form-control" type="text" id="company" name="text" ng-model="company"/>
+        </div>
+        <div class="col-sm-4">
+            <label for="location">Location</label>
+            <input class="form-control" type="text" id="location" name="text" ng-model="location"/>
+        </div>
+    </div>
+
+    <div class="row form-group">
+        <div class="col-sm-4">
+            <label for="country">Country</label>
+            <select ng-model="country" id="country" class="form-control">
+                <option value="united states">United States</option>
+                <option value="india">India</option>
+                <option value="canada">Canada</option>
+            </select>
+        </div>
+        <div class="col-sm-4">
+            <label for="skill">Skill</label>
+            <input class="form-control" type="text" id="skill" name="skill" ng-model="skill">
+        </div>
+        <div class="col-sm-4">
+            <label for="job-type">Job Type</label>
+            <select ng-model="jobType" id="job-type" class="form-control" ng-init="jobType = 'Internship'">
+                <option value="Internship">Internship</option>
+                <option value="Full-time">Full-time</option>
+
+            </select>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-4">
+            <label></label>
+            <input type="button" value="Submit" ng-click="model.searchJob(jobTitle,company,location,country,skill,jobType)" class="btn btn-block btn-danger"/>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <ul class="list-group">
+        <li class="list-group-item" ng-repeat = "result in model.results">
+            <h3> Job Title</h3>
+            <div>{{result.jobTitle}}</div>
+
+            <h3> Company</h3>
+            <div>{{result.company}}</div>
+
+            <h3> Location</h3>
+            <div>{{result.location}}</div>
+            <p align="right"> <a href="#/login" class="btn btn-success">Login to Apply</a> </p>
+        </li>
+
+    </ul>
+
+
+</form>

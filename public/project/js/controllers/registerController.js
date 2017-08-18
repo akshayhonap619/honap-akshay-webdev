@@ -32,25 +32,25 @@
             }
 
             userService.getUserByUsernamePass(username)
-                .then(successRegister, errorRegister);
+                .then(successRegister);
 
 
-            function errorRegister(error) {
-                model.errorMessage = "User already exists";
-                return;
-            }
 
 
             function successRegister(success) {
+                if(success==null){
+                    model.errorMessage="Username already taken"
+                    return;
+                }
 
                 var user = {};
                 user.username = username;
                 user.password = password;
                 user. role = role;
-                userService.addUser(user)
+                userService.register(user)
                     .then(function (response) {
                         console.log(response);
-                       // $location.url("/user/" + response);
+                        $location.url('/'+response.role);
                     })
 
 

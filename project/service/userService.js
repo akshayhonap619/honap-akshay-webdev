@@ -22,15 +22,19 @@ passport.use(new GoogleStrategy(googleConfig, googleStrategy));
 
 var userModel = require('../model/user/userModel')
 
-app.get('/api/job/user',findUser  );
-
+app.get("/api/job/check/:username", findUser)
 app.get("/api/job/user/:userId", findUserById);
-app.post("/api/job/user", createUser);
+app.post("/api/job/admin/add", createUser);
 app.put("/api/job/user/:userId", updateUser);
 app.delete("/api/job/user/:userId", deleteUser);
+
+app.put("/api/job/user/:userId/profile", updateStudentProfile);
+
 //Authentication
 app.post('/api/job/user/login',passport.authenticate('local'),login)
 app.get('/api/job/checkLogin', checkLogin)
+app.post('/api/job/user/logout', logout)
+app.post('/api/job/user/register', register)
 
 //Google
 app.get('/auth/google', passport.authenticate('google', { scope : ['profile', 'email'] }));
@@ -57,6 +61,19 @@ function localStrategy(username, password, done) {
         );
 }
 
+function register(req, res) {
+    var newUser = req.body;
+    userModel.createUser(newUser)
+        .then(function (user) {
+           req.login(user,function (status) {
+               res.send(user);
+           })
+
+        },function (error) {
+            res.send(404);
+        })
+}
+
 function login(req,res){
     var user = req.user;
     res.send(user);
@@ -65,6 +82,22 @@ function login(req,res){
 function checkLogin(req, res) {
 
     res.send(req.isAuthenticated() ? req.user : '0');
+}
+
+function logout(req, res) {
+    req.logOut();
+    res.send(200);
+}
+
+function updateStudentProfile(req,res) {
+    var userId = req.params.userId;
+    var profile = req.body;
+        console.log(userId + "userId")
+    userModel.updateStudentProfile(userId,profile)
+        .then(function (user) {
+            res.send(user);
+        })
+
 }
 
 function getUserByUsernamePass(req, res) {
@@ -91,16 +124,16 @@ function findUserById(req, res) {
 
 function findUser(req, res) {
     var result=null;
-    var username = req.query.username;
-    var password = req.query.password;
-    var role = req.query.role;
-    console.log("Password is "+password);
+    var username = req.params.username;
+   // var password = req.query.password;
+   // var role = req.query.role;
+    console.log("Password is "+username);
 
 
-    if(password === 'undefined'){
-
-        /*userModel.findUserByUsernameOnly(username)
+        userModel.findUserByUsernameOnly(username)
             .then(function (user) {
+                console.log("res")
+                console.log(user)
                 if(user!=null) {
                     res.send(404)
                 }
@@ -108,14 +141,14 @@ function findUser(req, res) {
                     res.send(200)
                 }
 
-            });*/
-            res.send("Only username");
+            });
+            //res.send("Only username");
 
-    }
-    else
+
+   /* else
     {
 
-        /*userModel.findUserByUsernamePassword(username,password)
+        /!*userModel.findUserByUsernamePassword(username,password)
             .then(function (user) {
                 if(user!=null) {
                     res.send(user)
@@ -123,7 +156,7 @@ function findUser(req, res) {
                 else {
                     res.send(404);
                 }
-            });*/
+            });*!/
 
         userModel.getUserByCredentials(username,password,role)
             .then(function (response) {
@@ -135,7 +168,7 @@ function findUser(req, res) {
                 }
 
             })
-    }
+    }*/
 
 
 
@@ -146,10 +179,10 @@ function createUser(req , res) {
     var newUser = req.body;
 
     console.log(newUser);
-    console.log("nU");
+
     userModel.createUser(newUser)
         .then(function (user) {
-            console.log("new user created");
+           // console.log("new user created");
             res.send(user);
         },function (error) {
             res.send(404);
@@ -171,27 +204,27 @@ function updateUser(req, res) {
     var userId = req.params.userId;
     var user = req.body;
 
-    //console.log(req.body);
+   // console.log(userId)
+   // console.log(req.body);
 
-  /*  userModel.updateUser(userId,user)
+   userModel.updateUser(userId,user)
         .then(function (status) {
             res.send(200);
         });
-*/
-console.log(user);
-res.send("done");
+
 }
 
 
 function deleteUser(req,res) {
     var userId = req.params.userId;
-//    console.log(userId);
+    console.log(userId);
 
-   /* userModel.deleteUser(userId)
+    userModel.deleteUser(userId)
         .then(function (user) {
-            res.send(200);
-        });*/
-   res.send("deleted user");
+            console.log("returned");
+            res.sendStatus(200);
+        });
+   //res.send("deleted user");
 }
 
 

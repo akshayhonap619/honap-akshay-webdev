@@ -1,0 +1,13 @@
+
+.my-intro{
+    background: #27AE61 url(../images/banner.png) no-repeat center;
+}
+
+.my-img-circle {
+
+    width: 20%;
+}
+body{
+    background: url("/images/backround1.jpg");
+}
+
