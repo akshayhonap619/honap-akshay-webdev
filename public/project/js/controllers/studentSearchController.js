@@ -43,7 +43,7 @@
                     }
 
                     $anchorScroll();
-                    model.appMessage = "You have successfully applied for "+posting.jobTitle+'.  Your Resume is shared with recruiter';
+                    model.appMessage = "You have successfully applied for "+posting.jobTitle+'.  Your Resume is shared with recruiter ';
                 })
         }
     }

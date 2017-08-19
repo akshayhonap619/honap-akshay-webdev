@@ -85,13 +85,13 @@ function deletePosting(req, res) {
 function searchStudentPosting(req,res) {
     var userId = req.params.userId;
 
-    var jobTitle,company,location,country,skill;
+    var jobTitle,company,location,country,skill,description;
 
     jobTitle = req.query.jobTitle.toLowerCase();
     company = req.query.company.toLowerCase();
     location = req.query.location.toLowerCase();
-    country = req.query.country.toLowerCase();
-    skill = req.query.skill.toLowerCase();
+    //description = req.query.description.toLowerCase();
+    //skill = req.query.skills.toLowerCase();
 
     console.log(jobTitle);
 
@@ -113,15 +113,15 @@ function searchStudentPosting(req,res) {
             }
             //console.log("ap");
             //console.log(allPostings)
-            for(p in allPostings){
+      /*      for(p in allPostings){
               //  console.log("in loop 2")
-               /* if((skill.includes(allPostings[p].skill.toLowerCase()) ||  allPostings[p].skill.toLowerCase().includes(skill))
-                    || (country.includes(allPostings[p].country.toLowerCase()) ||  allPostings[p].country.toLowerCase().includes(country)))
+                if((skill.includes(allPostings[p].skills.toLowerCase()) ||  allPostings[p].skills.toLowerCase().includes(skill))
+                    || (description.includes(allPostings[p].description.toLowerCase()) ||  allPostings[p].description.toLowerCase().includes(description)))
                 {
                     output.push(allPostings[p]);
-                }*/
+                }
             }
-            //console.log("out of 2");
+      */      //console.log("out of 2");
             //console.log("Before sending output")
             console.log(output);
 

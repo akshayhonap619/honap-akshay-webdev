@@ -11,6 +11,7 @@ var postingSchema = mongoose.Schema({
     date : String,
     jobType : String,
     description : String,
+    skills : String,
     url : String,
     recruiter : {type : mongoose.Schema.Types.ObjectId, ref : "userModel"},
     applicants : [
