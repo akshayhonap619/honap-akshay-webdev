@@ -1,26 +1,77 @@
+<div align="center"><h1>Job Posting Info</h1></div>
 <div class="">
 
 
+    <!-- {{model.posting}}-->
 
-<br>
+    <div class="row slab">
+        <div class="col-sm-6">
+            <p class="inner-title"><i class="fa fa-suitcase" aria-hidden="true"></i> Job Title</p>
+            <div>{{model.posting.jobTitle}}</div>
+        </div>
+        <div class="col-sm-6">
+            <p class="inner-title"><i class="fa fa-building" aria-hidden="true"></i> Company</p>
+            <div>{{model.posting.company}}</div>
+        </div>
+    </div>
+    <div class="row slab">
+        <div class="col-sm-6">
+            <p class="inner-title"><i class="fa fa-location-arrow" aria-hidden="true"></i> Location</p>
+            <div>{{model.posting.location}}</div>
+        </div>
+        <div class="col-sm-6">
+            <p class="inner-title"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Job Type</p>
+            <div>{{model.posting.jobType}}</div>
+        </div>
+    </div>
+    <div class="row slab">
+        <div class="col-sm-12">
+            <p class="inner-title"><i class="fa fa-info-circle" aria-hidden="true"></i> Description</p>
+            <div>{{model.posting.description}}</div>
+        </div>
+    </div>
+
+
+
     <br>
+    <p class="inner-title">Applicants</p>
 
-    <div ng-repeat="app in model.posting.applicants">
-        {{app}}
 
-        <div ng-switch="app.status">
-            <div ng-switch-when="Pending">
-                <div class="btn alert alert-warning">Pending</div>
-                <div class="btn btn btn-info" ng-click="model.decision('Accepted')">View Profile</div>
-                <br>
-                <div class="btn btn btn-success" ng-click="model.decision(app._id,'Accepted')">Accept</div>
-                <div class="btn btn btn-danger" ng-click="model.decision(app._id,'Rejected')">Reject</div>
+    <!--  <div ng-repeat="app in model.posting.applicants">-->
+    <div ng-repeat="app in model.posting.applicants"-->
+        <div ng-repeat="user in model.users" ng-if="user._id == app._id" class="applicant row">
+            <div class="col-sm-6">Name  :  {{user.firstName}}   {{user.lastName}}</div>
+            <div class="col-sm-6 text-right">
+                <span class="{{app.status}} application-status">{{app.status}}</span>
+                <div class="btn btn btn-success" ng-show="app.status== 'Pending'" ng-click="model.decision(app._id,'Accepted')">Accept</div>
+                <div class="btn btn btn-danger" ng-show="app.status== 'Pending'" ng-click="model.decision(app._id,'Rejected')">Reject</div>
+                <a href="#/recruiter/resume/{{app._id}}" class="btn btn btn-info" target="_blank">View Profile</a>
             </div>
 
 
         </div>
 
     </div>
-<hr/>
-    {{model.posting}}
+    <hr/>
 </div>
+
+<!--
+
+<div class="btn btn btn-success" ng-show="app.status== 'Pending'" ng-click="model.decision(app._id,'Accepted')">Accept</div>
+<div class="btn btn btn-danger" ng-show="app.status== 'Pending'" ng-click="model.decision(app._id,'Rejected')">Reject</div>-->
+
+<nav class="navbar navbar-default navbar-fixed-bottom header">
+    <div class="container-fluid my-container-header">
+        <div class="navbar-header">
+
+
+            <div align="center">
+                <a href="#/recruiter/applications">
+                    Back
+                </a>
+            </div>
+
+        </div>
+    </div>
+</nav>
+

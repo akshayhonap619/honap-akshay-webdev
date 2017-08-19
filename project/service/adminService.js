@@ -5,11 +5,13 @@
 var app = require('../../express')
 
 var userModel = require('../model/user/userModel')
-
+var postingModel = require('../model/posting/postingModel')
 
 app.get('/api/job/admin', getAdmin)
 app.get('/api/job/admin/users' , getAllUsers)
 app.delete('/api/job/admin/:userId', deleteUser)
+
+app.get('/api/job/allp', getAllpostings)
 
 
 function getAdmin(req, res) {
@@ -42,5 +44,13 @@ function deleteUser(req,res) {
         .then(function () {
             res.send(200);
         })
+
+}
+
+function getAllpostings(req,res) {
+   postingModel.getallPostings()
+       .then(function (postings) {
+           res.send(postings);
+       })
 
 }

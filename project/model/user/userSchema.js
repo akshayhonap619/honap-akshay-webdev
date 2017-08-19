@@ -9,24 +9,29 @@ var userSchema = mongoose.Schema(
         username : String,
         password : String,
         role : String,
-        email : String,
-        firstName : String,
-        lastName : String,
+        email : {type :String, default: ""},
+        firstName : {type :String, default: ""},
+        lastName : {type :String, default: ""},
         google : {
             id : String,
             token : String
         },
 
         profile : {
-            firstname : String,
-            lastname : String,
-            summary : String,
-            country : String,
-            zip : String,
+            firstname : {type :String, default: ""},
+            lastname : {type :String, default: ""},
+            summary : {type :String, default: ""},
+            country : {type :String, default: ""},
+            zip : {type :String, default: ""},
+            skills : {type :String, default: ""},
             workexp : [{
-                company : String,
-                position : String,
-                description : String
+                company : {type :String, default: ""},
+                position : {type :String, default: ""},
+                description : {type :String, default: ""},
+            }],
+            project : [{
+             name : {type :String, default: ""},
+              description : {type :String, default: ""},
             }]
         }
     }, {collection : "projectUser"}

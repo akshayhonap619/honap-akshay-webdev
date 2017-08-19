@@ -92,7 +92,7 @@ function logout(req, res) {
 function updateStudentProfile(req,res) {
     var userId = req.params.userId;
     var profile = req.body;
-        console.log(userId + "userId")
+       // console.log(userId + "userId")
     userModel.updateStudentProfile(userId,profile)
         .then(function (user) {
             res.send(user);
@@ -106,9 +106,9 @@ function getUserByUsernamePass(req, res) {
     var password = req.query.password;
     var role= req.query.role;
 
-    console.log(username);
+   /* console.log(username);
     console.log(password);
-    console.log(role);
+    console.log(role);*/
 
     res.send("user recieved");
 }
@@ -132,9 +132,9 @@ function findUser(req, res) {
 
         userModel.findUserByUsernameOnly(username)
             .then(function (user) {
-                console.log("res")
+             /*   console.log("res")
                 console.log(user)
-                if(user!=null) {
+             */   if(user!=null) {
                     res.send(404)
                 }
                 else{
@@ -178,7 +178,7 @@ function createUser(req , res) {
 
     var newUser = req.body;
 
-    console.log(newUser);
+   // console.log(newUser);
 
     userModel.createUser(newUser)
         .then(function (user) {
@@ -217,7 +217,7 @@ function updateUser(req, res) {
 
 function deleteUser(req,res) {
     var userId = req.params.userId;
-    console.log(userId);
+
 
     userModel.deleteUser(userId)
         .then(function (user) {

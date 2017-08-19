@@ -54,7 +54,7 @@
 
         function saveJob(result) {
             jobSearchService.savePosting(result);
-            $location.url('/recruiter/'+model.userId+'/posting/new')
+            $location.url('/recruiter/posting/new')
 
         }
 

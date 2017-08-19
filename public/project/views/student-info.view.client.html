@@ -1,19 +1,18 @@
-<div class="">
+<div align="center"><h1>Your Resume</h1></div>
 <div>
-Photo
-</div>
+
 
 <div class="row">
 <div class="col-xs-6">
     <label for="firstname">First Name:</label>
     <br>
-<input type="text" role id="firstname" name="firstname" class="form-control" ng-model="model.user.firstname">
+<input type="text" placeholder="FirstName" role id="firstname" name="firstname" class="form-control" ng-model="model.user.firstname">
 </div>
 
     <div class="col-xs-6">
         <label for="lastname">Last Name:</label>
         <br>
-        <input type="text" role id="lastname" name="firstname" class="form-control" ng-model="model.user.lastname">
+        <input type="text" placeholder="LastName" role id="lastname" name="firstname" class="form-control" ng-model="model.user.lastname">
     </div>
 
 </div>
@@ -21,20 +20,20 @@ Photo
 
     <div>
         <label for="summary"> Summary</label>
-        <textarea id="summary" rows="3" class="form-control" ng-model="model.user.summary"></textarea>
+        <textarea placeholder="Short Summary about Yourself" id="summary" rows="3" class="form-control" ng-model="model.user.summary"></textarea>
     </div>
 <!-- Location Zip -->
     <div class="row">
         <div class="col-xs-6">
             <label for="country">Country</label>
             <br>
-            <input type="text" role id="country" name="country" class="form-control" ng-model="model.user.country">
+            <input type="text" placeholder="Country" role id="country" name="country" class="form-control" ng-model="model.user.country">
         </div>
 
         <div class="col-xs-6">
             <label for="zip">ZIP</label>
             <br>
-            <input type="text" role id="zip" name="zip" class="form-control" ng-model="model.user.zip">
+            <input type="text" placeholder="Zip code" role id="zip" name="zip" class="form-control" ng-model="model.user.zip">
         </div>
 
     </div>
@@ -49,13 +48,13 @@ Photo
         <div class="col-xs-6">
             <label for="company1">Company</label>
             <br>
-            <input type="text" role id="company1" name="country" class="form-control" ng-model="model.user.workexp[0].company">
+            <input type="text" placeholder="Company Name" role id="company1" name="country" class="form-control" ng-model="model.user.workexp[0].company">
         </div>
 
         <div class="col-xs-6">
             <label for="position1">Position</label>
             <br>
-            <input type="text" role id="position1" name="zip" class="form-control" ng-model="model.user.workexp[0].position">
+            <input type="text" placeholder="Position" role id="position1" name="zip" class="form-control" ng-model="model.user.workexp[0].position">
         </div>
 
     </div>
@@ -63,7 +62,7 @@ Photo
     <div>
         <label for="description1">Description: </label>
 
-       <textarea class="form-control" id="description1" name="description1" rows="4" ng-model="model.user.workexp[0].description">
+       <textarea class="form-control" placeholder="Job Description" id="description1" name="description1" rows="4" ng-model="model.user.workexp[0].description">
 
        </textarea>
     </div>
@@ -81,13 +80,13 @@ Photo
             <div class="col-xs-6">
                 <label for="company2">Company</label>
                 <br>
-                <input type="text" role id="company2" name="country" class="form-control" ng-model="model.user.workexp[1].company">
+                <input type="text" placeholder="Company Name" role id="company2" name="country" class="form-control" ng-model="model.user.workexp[1].company">
             </div>
 
             <div class="col-xs-6">
                 <label for="position2">Position</label>
                 <br>
-                <input type="text" role id="position2" name="zip" class="form-control" ng-model="model.user.workexp[1].position">
+                <input type="text" role placeholder="Position" id="position2" name="zip" class="form-control" ng-model="model.user.workexp[1].position">
             </div>
 
         </div>
@@ -95,7 +94,7 @@ Photo
         <div>
             <label for="description2">Description: </label>
 
-            <textarea class="form-control" id="description2" name="description1" rows="4" ng-model="model.user.workexp[1].description">
+            <textarea class="form-control" placeholder="Job Description" id="description2" name="description1" rows="4" ng-model="model.user.workexp[1].description">
 
        </textarea>
         </div>
@@ -103,9 +102,51 @@ Photo
 
     </div>
 
+    <br>
+    <h4> Project #1 </h4>
+
+        <label for="project1">Name</label>
+        <br>
+        <input type="text" role id="project1" name="country" placeholder="Project Name" class="form-control" ng-model="model.user.project[0].name">
+        <label for="pdescription2">Description: </label>
+
+    <textarea class="form-control" id="pdescription2" name="description1" placeholder="Project Description" rows="4" ng-model="model.user.project[0].description"></textarea>
+
+            <br>
+    <h4> Project #2</h4>
+
+        <label for="project2">Name</label>
+        <br>
+        <input type="text" role id="project2" placeholder="Project Name" name="country" class="form-control" ng-model="model.user.project[1].name">
+        <label for="pdescription1">Description: </label>
+
+            <textarea class="form-control"  placeholder="Project Description" id="pdescription1" name="description1" rows="4" ng-model="model.user.project[1].description"></textarea>
 
 
-<a href="" class="btn btn-success"  role="button" ng-click="model.click()">Update Profile</a>
+    <br>
+            <h4>Skills</h4>
+            <textarea placeholder="Enter all the skills you know" class="form-control" id="skill1" name="description1" rows="4" ng-model="model.user.skills">
+            </textarea>
+
+
+<a href="" class="btn btn-success btn-block"  role="button" ng-click="model.click()">Update Profile</a>
 
 
 </div>
+
+
+<nav class="navbar navbar-default navbar-fixed-bottom header">
+    <div class="container-fluid my-container-header">
+        <div class="navbar-header">
+
+
+            <div align="center">
+                <a href="#/student">
+                    Back
+                </a>
+            </div>
+
+        </div>
+    </div>
+</nav>
+

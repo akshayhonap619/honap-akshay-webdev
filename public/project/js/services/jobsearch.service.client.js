@@ -42,7 +42,7 @@
             function addJob(userId,result) {
                 result.recruiter = userId;
                 var url = '/api/job/recruiter/'+userId+'/posting/new';
-                console.log(result);
+                //console.log(result);
                 return $http.put(url,result)
                     .then(function (response) {
                         return response.data;
@@ -53,7 +53,7 @@
             function updateJob(userId,result) {
                 result.recruiter = userId;
                 var url = '/api/job/recruiter/'+userId+'/posting/edit';
-                console.log(result);
+                //console.log(result);
                 return $http.post(url,result)
                     .then(function (response) {
                         return response.data;
@@ -62,7 +62,7 @@
 
             function getPostingsForRecruiter(userId) {
                 var url = '/api/job/recruiter/'+userId+'/posting'
-                console.log(url);
+               // console.log(url);
                 return $http.get(url)
                     .then(function (response) {
                        return response.data;
@@ -72,12 +72,10 @@
             function deletePosting(postingId) {
                 var url = "/api/job/posting/"+postingId;
 
-                $http.delete(url)
+                return $http.delete(url)
                     .then(function (response) {
-                        console.log("response from server is ")
-                        console.log(response);
-                        console.log(response.data);
-                        return "Deleted";
+
+                        return response.data;
                     })
 
             }
@@ -102,7 +100,7 @@
             function searchStudentPosting(url) {
                 return $http.get(url)
                     .then(function (response) {
-                        console.log(response)
+                      //  console.log(response)
                         return response.data;
                     })
             }
@@ -112,7 +110,7 @@
                 console.log(url);
                return $http.put(url)
                    .then(function (response) {
-                       console.log(response);
+                      // console.log(response.data);
                        return response.data;
                    })
 
@@ -130,7 +128,7 @@
 
             function getApplicationsForStudent(userId) {
                 var url = '/api/job/student/'+userId+'/applications';
-                console.log(url)
+                //console.log(url)
                 return $http.get(url)
                     .then(function (response) {
                         return response.data;

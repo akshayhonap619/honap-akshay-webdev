@@ -12,7 +12,7 @@
             model.addJob = addJob;
             model.updateJob = updateJob;
             model.postingId =  $routeParams.postingId;
-            console.log(model.postingId) ;
+           // console.log(model.postingId) ;
             init();
 
             function init() {
@@ -20,7 +20,7 @@
                 if(typeof model.postingId == 'undefined') {
                     model.posting = jobSearchService.sendPosting();
 
-                    console.log(model.posting);
+                    //console.log(model.posting);
                 }
                 else{
                      jobSearchService.getPostingById(model.postingId)
@@ -60,11 +60,16 @@
                     model.errorMessage = "Job Type cannot be empty"
                     return;
                 }
+                if(typeof model.posting.description == 'undefined' || model.posting.description == "" || model.posting.description == null){
+                    model.errorMessage = "Description cannot be empty"
+                    return;
+                }
 
 
                 jobSearchService.addJob(model.userId,model.posting)
                     .then(function (response) {
-                        console.log("DOne");
+                      // console.log("DOne");
+                        $location.url("/recruiter/applications");
                     },function (error) {
                         console.log(error);
                     })
@@ -97,12 +102,17 @@
                     model.errorMessage = "Job Type cannot be empty"
                     return;
                 }
+
+                if(typeof model.posting.description == 'undefined' || model.posting.description == "" || model.posting.description == null){
+                    model.errorMessage = "Description cannot be empty"
+                    return;
+                }
                     console.log("Ithe")
 
                 jobSearchService.updateJob(model.userId,model.posting)
                     .then(function (response) {
-                        console.log("DOne");
-                        $location.url('/recruiter/'+model.userId+'/posting/'+model.postingId+'/edit');
+                        //console.log("DOne");
+                        $location.url('/recruiter/applications');
                     },function (error) {
                         console.log(error);
                     })

@@ -22,7 +22,7 @@
     </div>
 </nav>
 -->
-<nav class="navbar navbar-default" ng-controller="headerController">
+<nav class="navbar navbar-default header" ng-controller="headerController">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header" ng-init="collapsed = true">
@@ -32,16 +32,18 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" >LinkedIn</a>
+            <a class="navbar-brand" href="#/">LinkedInnn</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="navbar-collapse" id="bs-example-navbar-collapse-1" ng-class="{'collapse': collapsed}">
 
             <ul class="nav navbar-nav">
-                <li ng-show="login"><a href="#/{{userType}}/posting/search">Search Jobs</a></li>
+                <li ng-show="login && userType=='student'"><a href="#/student/posting/search">Search Jobs</a></li>
+                <li ng-show="login && userType=='recruiter'"><a href="#/recruiter/posting/search">Add Jobs</a></li>
+
                 <li ng-show="login && userType=='student'"><a href="#/student/applications">Applications</a></li>
-                <li ng-show="login && userType=='recruiter'"><a href="#/recruiter/applications">Your Posting</a></li>
+                <li ng-show="login && userType=='recruiter'"><a href="#/recruiter/applications">Your Postings</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li ng-show="login"><a>Hi, {{name}}</a></li>
@@ -49,8 +51,7 @@
                 <li ng-show="login && userType=='student'"><a href="#/{{userType}}/profile">Resume</a></li>
                 <li ng-show="!login"><a href="#/login">Login</a></li>
                 <li ng-show="!login"><a href="#/register">Register</a></li>
-                <li ng-show="login && userType=='student'"><a ng-click="studentlogout()">logout</a></li>
-                <li ng-show="login && userType=='recruiter'"><a ng-click="recruiterlogout()">logout</a></li>
+                <li ng-show="login"><a ng-click="logout()">Logout</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

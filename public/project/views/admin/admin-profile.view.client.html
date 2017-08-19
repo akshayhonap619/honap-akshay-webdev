@@ -1,20 +1,27 @@
-
+<div align="center"><h1>Admin Profile</h1></div>
 
 
 <div class="">
 
     <div class="alert alert-info">welcome Back {{model.user.username}}</div>
 
-    <div class="btn btn-block btn-danger" ng-click="model.logoutUser()">Logout</div>
 
     <div class="container-fluid ">
-        <div class="col-xs-6">
-            <div class="btn btn-primary" ng-click="model.getAllUsers()">List Users</div>
+        <div class="row">
+        <div class="col-sm-6">
+            <div class="btn btn-block btn-primary form-control" ng-click="model.getAllUsers()">List Users</div>
         </div>
-            <div class="col-xs-6">
-                <a href="#/admin/add" class="btn btn-success" >Create User</a>
+            <div class="col-sm-6">
+                <a href="#/admin/add" class="btn btn-success form-control" >Create User</a>
             </div>
         </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+        <div class="btn btn-block btn-danger form-control" ng-click="model.getAllPostings()">List JOB Postings</div>
+        </div>
+    </div>
 
 
     <div ng-show="model.flagUsers" ng-repeat="user in model.allUsers">
@@ -30,8 +37,49 @@
         </ul>
     </div>
 
-    <div ng-show="model.flagPostings">
-        {{model.allPostings}}
+
+    <div ng-show="model.flagPostings" ng-repeat="posting in model.allPostings">
+        <ul class="list-group">
+            <li class="list-group-item">
+                <h4>Job Title    :  {{posting.jobTitle}}</h4>
+                <h4>Company      :  {{posting.company}}</h4>
+                <h4>Location     :  {{posting.location}}</h4>
+                <h4>Description  :  {{posting.description}}</h4>
+                <h4>Job Type     :  {{posting.jobType}}</h4>
+                <div align="right">
+
+                    <div role="button" class="btn btn-danger" ng-click="model.deleteJob(posting._id)">Delete</div>
+                    <a href="#/admin/jobupdate/{{posting._id}}" role="button" class="btn btn-info">Update</a>
+
+                </div>
+            </li>
+        </ul>
     </div>
 
+
+
+<!--
+
+    <div ng-show="model.flagPostings"> {{model.allPostings}}
+
+    </div>
+-->
+
 </div>
+
+
+<nav class="navbar navbar-default navbar-fixed-bottom header">
+    <div class="container-fluid my-container-header">
+        <div class="navbar-header">
+
+
+            <div align="center">
+                <a href="#/admin">
+                    Back
+                </a>
+            </div>
+
+        </div>
+    </div>
+</nav>
+

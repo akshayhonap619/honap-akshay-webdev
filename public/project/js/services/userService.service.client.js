@@ -86,8 +86,8 @@
         
         function deleteUser(userId) {
 
-            var url = "/api/user/" + userId;
-
+            var url = "/api/job/user/" + userId;
+            //console.log(url);
             return $http.delete(url)
                 .then(function (response) {
                     return response.data;
@@ -133,7 +133,7 @@
         }
         
         function logoutUser() {
-            var url = '/api/job/user/logout'
+            var url = '/api/job/user/logout';
             return $http.post(url)
                 .then(function (response) {
                     return response.data;

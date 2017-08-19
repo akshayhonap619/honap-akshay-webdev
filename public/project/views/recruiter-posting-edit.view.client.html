@@ -1,36 +1,66 @@
+<div align="center"><h1>Edit Job Posting</h1> </div>
+
 <div class="">
 
-    {{model.posting}}
 
-    <div class="alert alert-danger" >{{model.errorMessage}} Space</div>
+    <div ng-show="model.errorMessage" class="alert alert-danger" >{{model.errorMessage}}</div>
 
+
+    <div class="row">
+        <div class="col-sm-6">
     <label for="title">Job Title</label>
 
     <input class="form-control" type="text" name="title" id="title" ng-model="model.posting.jobTitle">
-
+        </div>
+        <div class="col-sm-6">
     <label for="company"> Company</label>
     <input class="form-control" type="text" name="company" id="company" ng-model="model.posting.company">
-
+    </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
     <label for="location"> Location</label>
     <input class="form-control" type="text" name="location" id="location" ng-model="model.posting.location">
-
+        </div>
+        <div class="col-sm-6">
     <label for="date"> Date of Posting</label>
     <input class="form-control" type="text" name="date" id="date" ng-model="model.posting.date">
-
+    </div>
+    </div>
     <label for="description"> Description</label>
     <textarea id="description" rows="4" ng-model="model.posting.description" class="form-control"></textarea>
 
+    <div class="row">
+        <div class="col-sm-6">
     <label for="skills">Desired Skills</label>
     <input class="form-control" type="text" name="date" id="skills" ng-model="model.posting.skills">
-
+        </div>
+        <div class="col-sm-6">
 
     <label for="jobtype">Job Type</label>
     <select id =jobtype ng-model="model.posting.jobType" class="form-control">
         <option value="Internship">Internship</option>
         <option value="Full-time">Full Time</option>
     </select>
-
-
-    <a href="" role="button" ng-click="model.updateJob()" class="btn btn-success">Update</a>
+    </div>
+    </div>
+    <a href="" role="button" ng-click="model.updateJob()" class="btn btn-success btn-block">Update</a>
 
 </div>
+
+
+<nav class="navbar navbar-default navbar-fixed-bottom header">
+    <div class="container-fluid my-container-header">
+        <div class="navbar-header">
+
+
+            <div align="center">
+                <a href="#/recruiter">
+                    Back
+                </a>
+            </div>
+
+        </div>
+    </div>
+</nav>
+

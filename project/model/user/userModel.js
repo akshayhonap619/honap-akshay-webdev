@@ -31,7 +31,7 @@ function createUser(user) {
     return userModel.create(user)
 }
 
-function deleteUser(req, res) {
+/*function deleteUser(req, res) {
     var userId = req.params.userId;
 
     return userModel.deleteUser(userId)
@@ -39,7 +39,7 @@ function deleteUser(req, res) {
             res.send(200);
         })
 
-}
+}*/
 
 function getUserByCredentials(username,password) {
      return userModel.findOne({username : username, password : password});
@@ -62,8 +62,8 @@ function updateStudentProfile(userId,profile) {
    // console.log(userId)
     return userModel.findById({_id : userId})
         .then(function (user) {
-            console.log("model user");
-            console.log(user);
+           // console.log("model user");
+           // console.log(user);
             user.profile = profile;
             return user.save();
         })

@@ -5,7 +5,7 @@
     angular.module("JobApp")
         .controller("recruiterWelcomeController", recruiterWelcomeController)
 
-    function recruiterWelcomeController($location, userService, $routeParams,  jobSearchService, check, $rootScope) {
+    function recruiterWelcomeController($location, userService, $routeParams,  jobSearchService, check, $rootScope, $route) {
         var model = this;
         model.userId = check._id;  //$routeParams.userId;
 
@@ -27,6 +27,7 @@
         }
 
         function deleteUser() {
+            //console.log(model.userId)
             userService.deleteUser(model.userId)
                 .then(function (response) {
                     $location.url("/login");
@@ -61,7 +62,7 @@
             console.log(postingId)
             jobSearchService.deletePosting(postingId)
                 .then(function (response) {
-                    //model.errorMessage = "Posting Successfully deleted";
+                    $route.reload();
                 })
             
         }

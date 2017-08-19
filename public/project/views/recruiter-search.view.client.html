@@ -1,43 +1,79 @@
 
-<h1>Project Home Page</h1>
+<div align="center"><h1>Search Job Applications</h1></div>
 <div class="">
 
     <div role="alert" ng-show="model.errorMessage" class="alert alert-danger" align="center">{{model.errorMessage}}</div>
 
 
+
+        <div class="row">
+
+         <div class="col-sm-4">
         <label for="text">Search Keyword</label>
-        <input class="form-control" type="text" id="text" name="text" ng-model="text"/>
+        <input placeholder="java, C, C++, software developer" class="form-control" type="text" id="text" name="text" ng-model="text"/>
+         </div>
+            <div class="col-sm-4">
         <label for="country">Country</label>
         <select ng-model="country" id="country" class="form-control">
             <option value="us">United States</option>
             <option value="in">India</option>
             <option value="cn">Canada</option>
         </select>
-        {{text}}
-        {{country}}
-
+            </div>
+            <div class="col-sm-4">
         <label for="skill">Skill</label>
-        <input class="form-control" type="text" id="skill" name="skill" ng-model="skill">
-
+        <input placeholder="C, C++" class="form-control" type="text" id="skill" name="skill" ng-model="skill">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4"></div>
+    <div class="col-sm-4">
         <input type="button" value="Submit" ng-click="model.searchJob(text,country,skill)" class="btn btn-block btn-danger"/>
+    </div>
+        </div>
 
 
 
 
+    <ul class="list-group">
+        <li class="list-group-item" ng-repeat = "result in model.results">
 
-        <ul class="list-group">
-            <li class="list-group-item" ng-repeat = "result in model.results">
-                <h3> Job Title</h3>
+            <div >
+                <p class="inner-title"><i class="fa fa-suitcase" aria-hidden="true"></i> Job Title</p>
                 <div>{{result.jobTitle}}</div>
+            </div>
 
-                <h3> Company</h3>
+            <div>
+                <p class="inner-title"><i class="fa fa-building" aria-hidden="true"></i> Company</p>
                 <div>{{result.company}}</div>
+            </div>
 
-                <h3> Location</h3>
+            <div>
+                <p class="inner-title"><i class="fa fa-location-arrow" aria-hidden="true"></i> Location</p>
                 <div>{{result.location}}</div>
-                <p align="right"> <button class="btn btn-warning" ng-click="model.saveJob(result)">Make available</button> </p>
-            </li>
+            </div>
 
-        </ul>
+
+            <p align="right"> <button class="btn btn-warning" ng-click="model.saveJob(result)">Make available to Students</button> </p>
+        </li>
+
+    </ul>
 
 </div>
+
+
+<nav class="navbar navbar-default navbar-fixed-bottom header">
+    <div class="container-fluid my-container-header">
+        <div class="navbar-header">
+
+
+            <div align="center">
+                <a href="#/recruiter">
+                    Back
+                </a>
+            </div>
+
+        </div>
+    </div>
+</nav>
+

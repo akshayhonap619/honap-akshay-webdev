@@ -37,8 +37,13 @@
         function applyForJob(posting) {
             jobSearchService.applyForJob(posting._id, model.userId)
                 .then(function (response) {
+                    if(response== "exists"){
+                        model.errorMessage = "You have already applied for the job."
+                        return;
+                    }
+
                     $anchorScroll();
-                    model.appMessage = "You have successfully applied for "+posting.jobTitle;
+                    model.appMessage = "You have successfully applied for "+posting.jobTitle+'.  Your Resume is shared with recruiter';
                 })
         }
     }

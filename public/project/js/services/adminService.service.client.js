@@ -10,8 +10,12 @@
 
         this.getAdmin = getAdmin;
         this.getAllUsers = getAllUsers;
-        //this.getAllPostings = getAllPostings;
+
         this.deleteUser = deleteUser;
+
+        this.getAllPostings = getAllPostings;
+
+
 
         function getAdmin() {
             var url = '/api/job/admin';
@@ -31,6 +35,15 @@
                 })
         }
 
+        function getAllPostings() {
+            var url = '/api/job/allp';
+
+           return $http.get(url)
+               .then(function (response) {
+                   return response.data;
+               })
+        }
+
         function deleteUser(userId) {
             var url = '/api/job/admin/'+userId;
             console.log(url);
@@ -40,5 +53,6 @@
                 })
 
         }
+
     }
 })();

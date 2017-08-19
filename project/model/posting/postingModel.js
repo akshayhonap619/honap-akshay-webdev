@@ -68,14 +68,14 @@ function addApplicant(postingId, userId) {
     return postingModel.findById({_id : postingId})
         .then(function (posting) {
 
-            //console.log('posting is ')
-            //console.log(posting)
-
+            for(a in posting.applicants){
+                if(posting.applicants[a]._id == userId){
+                    console.log("exists");
+                    return "exists"
+                }
+            }
 
             var applicant = {_id : userId , status : "Pending"};
-            //console.log("applicanr is");
-            //console.log(applicant);
-            //console.log('in model')
             posting.applicants.push(applicant);
 
             return posting.save();

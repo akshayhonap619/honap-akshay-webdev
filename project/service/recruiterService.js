@@ -24,11 +24,12 @@ app.post('/api/job/student/:userId/posting/:postingId/decision', jobDecision);
 
 app.get('/api/job/student/:userId/applications',getApplicationsForStudent)
 
+
 function addJob(req,res) {
     var userId = req.params.userId;
     var job = req.body;
 
-    console.log(userId);
+    //console.log(userId);
    // console.log(job)
     postingModel.createPosting(userId,job)
         .then(function (response) {
@@ -67,7 +68,7 @@ function getPostingsForRecruiter(req,res) {
     console.log(userId);
     postingModel.getPostingsForRecruiter(userId)
         .then(function (postings) {
-            console.log(postings);
+           // console.log(postings);
            res.json(postings);
         })
 }
@@ -133,14 +134,12 @@ function applyForJob(req,res) {
     var postingId = req.params.postingId;
     var userId = req.params.userId;
 
-    console.log(postingId);
-    console.log(userId);
+    //console.log(postingId);
+    //console.log(userId);
 
     postingModel.addApplicant(postingId,userId)
         .then(function (response) {
-            console.log(response);
-            console.log("returned from model");
-            res.sendStatus(200);
+            res.send(response);
         })
 
 
@@ -149,7 +148,7 @@ function applyForJob(req,res) {
 function getPostingById(req, res) {
     var postingId = req.params.postingId;
 
-    console.log("p id is "+postingId)
+   // console.log("p id is "+postingId)
 
     postingModel.getPostingById(postingId)
         .then(function (response) {
@@ -163,12 +162,15 @@ function jobDecision(req, res) {
 
     var decision = req.query.decision;
 
-
+    console.log("In Job Decision")
 
 
     console.log("userId");
     console.log(userId);
 
+    console.log("postingId")
+    console.log(postingId);
+    console.log(decision)
 
     postingModel.jobDecision(userId,postingId,decision)
         .then(function (response) {
@@ -203,6 +205,7 @@ function    getApplicationsForStudent(req,res) {
                         post.location = postings[p].location;
                         post.date = postings[p].date;
                         post.jobType = postings[p].jobType;
+                        post.description = postings[p].description;
 
                         var status = applicants[a].status;
                         post.status = status;
@@ -213,7 +216,7 @@ function    getApplicationsForStudent(req,res) {
                 }
 
             }
-            console.log("result is")
+           // console.log("result is")
             //console.log(result[0]);
             res.send(result);
         })

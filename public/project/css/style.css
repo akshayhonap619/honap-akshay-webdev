@@ -22,3 +22,43 @@ body{
 a{
     cursor: pointer;
 }
+
+.form-control, .btn-block{
+    margin-bottom: 10px;
+}
+
+.btn.my-but .a{
+    padding: 8px;
+}
+.list-group-item{
+    margin-bottom: 8px;
+    border-radius: 5px;
+}
+.inner-title{
+    margin-bottom: 10px;
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 1.3em;
+}
+.list-group-item .row.slab {
+    margin-bottom:15px;
+}
+.application-status{
+    padding: 5px 10px;
+}
+.Pending{
+    background-color: yellow;
+}
+.Accepted{
+    background-color: green;
+}
+.Rejected{
+    background-color: red;
+}
+.applicant{
+
+}
+.header{
+    opacity: 0.8;
+}
+

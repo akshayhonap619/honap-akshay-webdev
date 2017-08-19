@@ -5,7 +5,7 @@
     angular.module("JobApp")
         .controller('headerController',headerController)
     
-        function headerController($scope, $rootScope) {
+        function headerController($scope, $rootScope, userService, $location) {
             $scope.login = false;
 
             $scope.name= "";
@@ -16,17 +16,16 @@
                 $scope.login = true;
             });
 
-            $scope.studentlogout = function(){
+            $scope.logout = function(){
                 $scope.name= "";
                 $scope.login= false;
-                $rootScope.$emit("studentLogout");
+                userService.logoutUser()
+                    .then(function (response) {
+                        $location.url('#/login')
+                    });
             }
 
-            $scope.recruiterlogout = function(){
-                $scope.name= "";
-                $scope.login= false;
-                $rootScope.$emit("recruiterlogout");
-            }
+
 
 
         }

@@ -1,4 +1,4 @@
-
+<div align="center"><h1>Profile</h1></div>
 
 
 <div class="">
@@ -11,6 +11,9 @@
     <a role="button" class="btn btn-info" ng-click="model.getApplicationsForStudent()">Get Applications</a>-->
 
 <br>
+
+    <div class="row">
+        <div class="col-sm-6">
     <label for="Username">Username</label>
     <input class="form-control"
            type="text"
@@ -18,7 +21,9 @@
            ng-model="model.user.username"
            id="Username"
            placeholder="Username"/>
+        </div>
 
+        <div class="col-sm-6">
     <label for="email">Email</label>
     <input class="form-control"
            type="email"
@@ -26,23 +31,28 @@
            ng-model="model.user.email"
            id="email"
            placeholder="abc@xyz.com"/>
-
+    </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
     <label for="firstname">First Name</label>
     <input class="form-control"
            type="text"
            name="firstname"
            ng-model="model.user.firstName"
            id="firstname"
-           placeholder="Bob"/>
-
+           placeholder="First Name"/>
+        </div>
+        <div class="col-sm-6">
     <label for="lastname">Last Name</label>
     <input class="form-control"
            type="text"
            name="lastname"
            ng-model="model.user.lastName"
            id="lastname"
-           placeholder="Martin"/>
-
+           placeholder="Last Name"/>
+    </div>
+    </div>
 
    <!-- <ul class="list-group">
     <li ng-repeat="apps in model.applications" class="list-group-item">
@@ -51,12 +61,29 @@
     </li>
     </ul>-->
 
+
     <div class="btn btn-block btn-danger" ng-click="model.deleteUser()">Unregister</div>
 
-    <div class="btn btn-block btn-warning" ng-click="model.logoutUser()">Logout</div>
 
     <a href="#/student/profile" class="btn btn-block btn-primary">Update Resume</a>
 
     <div class="btn btn-block btn-info" ng-click="model.updateUser()">Update Profile</div>
 
 </div>
+
+
+<nav class="navbar navbar-default navbar-fixed-bottom header">
+    <div class="container-fluid my-container-header">
+        <div class="navbar-header">
+
+
+            <div align="center">
+                <a href="#/student">
+                    Back
+                </a>
+            </div>
+
+        </div>
+    </div>
+</nav>
+

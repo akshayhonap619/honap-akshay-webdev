@@ -6,7 +6,7 @@
     angular.module("JobApp")
         .controller("adminProfileController",adminProfileController)
 
-        function adminProfileController(check,adminService,userService,$location) {
+        function adminProfileController(check,adminService,userService,$location, jobSearchService) {
             var model = this;
             model.userId = check._id;
             model.getAllUsers = getAllUsers;
@@ -15,6 +15,9 @@
             model.logoutUser = logoutUser;
 
             model.deleteUser = deleteUser;
+            model.getAllPostings = getAllPostings;
+            
+            model.deleteJob = deleteJob;
 
            // model.showUsers=showUsers;
           //  model.showPostings=showPostings;
@@ -34,6 +37,14 @@
                         .then(function (users) {
                             model.allUsers = users;
                         })
+
+                adminService.getAllPostings()
+                    .then(function (postings) {
+                        model.allPostings = postings;
+                    })
+
+                model.flagUsers=false;
+                model.flagPostings = false;
             }
 
             function getAllUsers() {
@@ -59,7 +70,24 @@
                                 })
                         })
             }
+            
+            function deleteJob(jobId) {
+                jobSearchService.deletePosting(jobId)
+                    .then(function (response) {
+                        adminService.getAllPostings()
+                            .then(function (postings) {
+                                model.allPostings = postings;
+                            })
 
+                    })
+            }
+
+            
+            function getAllPostings() {
+                model.flagUsers=false;
+                model.flagPostings=true;
+
+            }
 
             function logoutUser() {
                 userService.logoutUser()

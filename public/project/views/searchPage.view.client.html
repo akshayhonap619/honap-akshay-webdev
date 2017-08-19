@@ -6,15 +6,15 @@
 
         <div class="col-sm-4">
             <label for="text">Search Keyword</label>
-            <input type="text" class="form-control" id="text" ng-model="jobTitle">
+            <input placeholder="Software Developer, C, C++" type="text" class="form-control" id="text" ng-model="jobTitle">
         </div>
         <div class="col-sm-4">
             <label for="company">Company</label>
-            <input class="form-control" type="text" id="company" name="text" ng-model="company"/>
+            <input placeholder="company name" class="form-control" type="text" id="company" name="text" ng-model="company"/>
         </div>
         <div class="col-sm-4">
             <label for="location">Location</label>
-            <input class="form-control" type="text" id="location" name="text" ng-model="location"/>
+            <input placeholder="location" class="form-control" type="text" id="location" name="text" ng-model="location"/>
         </div>
     </div>
 
@@ -29,7 +29,7 @@
         </div>
         <div class="col-sm-4">
             <label for="skill">Skill</label>
-            <input class="form-control" type="text" id="skill" name="skill" ng-model="skill">
+            <input placeholder="C, C++" class="form-control" type="text" id="skill" name="skill" ng-model="skill">
         </div>
         <div class="col-sm-4">
             <label for="job-type">Job Type</label>
@@ -42,41 +42,32 @@
     </div>
 
     <div class="row">
+        <div class="col-sm-4"></div>
         <div class="col-sm-4">
             <label></label>
             <input type="button" value="Submit" ng-click="model.searchJob(jobTitle,company,location,country,skill,jobType)" class="btn btn-block btn-danger"/>
         </div>
     </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <ul class="list-group">
         <li class="list-group-item" ng-repeat = "result in model.results">
-            <h3> Job Title</h3>
-            <div>{{result.jobTitle}}</div>
 
-            <h3> Company</h3>
-            <div>{{result.company}}</div>
+            <div >
+                <p class="inner-title"><i class="fa fa-suitcase" aria-hidden="true"></i> Job Title</p>
+                <div>{{result.jobTitle}}</div>
+            </div>
 
-            <h3> Location</h3>
-            <div>{{result.location}}</div>
+            <div>
+                <p class="inner-title"><i class="fa fa-building" aria-hidden="true"></i> Company</p>
+                <div>{{result.company}}</div>
+            </div>
+
+            <div>
+                <p class="inner-title"><i class="fa fa-location-arrow" aria-hidden="true"></i> Location</p>
+                <div>{{result.location}}</div>
+            </div>
+
+
             <p align="right"> <a href="#/login" class="btn btn-success">Login to Apply</a> </p>
         </li>
 
@@ -84,3 +75,20 @@
 
 
 </form>
+
+
+<nav class="navbar navbar-default navbar-fixed-bottom header">
+    <div class="container-fluid my-container-header">
+        <div class="navbar-header">
+
+
+            <div align="center">
+                <a href="#/">
+                    Back
+                </a>
+            </div>
+
+        </div>
+    </div>
+</nav>
+

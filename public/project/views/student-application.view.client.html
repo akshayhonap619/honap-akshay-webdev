@@ -1,29 +1,44 @@
+<div align="center"><h1>Your Job Applications</h1></div>
 <div>
-    <h1>Your Job Applications</h1>
-    <ul ng-repeat="app in model.applications" class="list-group">
+
+    <ul ng-repeat="result in model.applications" class="list-group">
        <li class="list-group-item">
            <!--{{app}}-->
-           <h3>Job Title :  </h3> {{app.jobTitle}}
+           <!--<h3>Job Title :  </h3> {{app.jobTitle}}
            <h3>Company :  </h3> {{app.company}}
            <h3>Location :</h3>  {{app.location}}
            <h3>Date :</h3>       {{app.date}}
-           <h3>Job Type :</h3>  {{app.jobType}}
+           <h3>Job Type :</h3>  {{app.jobType}}-->
 
-
-           <div ng-show="app.status == 'Accepted'">
-               <h3> Status </h3>
-               <div class="btn btn-success"> Accepted</div>
+           <div class="row slab">
+               <div class="col-sm-6">
+                   <p class="inner-title"><i class="fa fa-suitcase" aria-hidden="true"></i> Job Title</p>
+                   <div>{{result.jobTitle}}</div>
+               </div>
+               <div class="col-sm-6">
+                   <p class="inner-title"><i class="fa fa-building" aria-hidden="true"></i> Company</p>
+                   <div>{{result.company}}</div>
+               </div>
+           </div>
+           <div class="row slab">
+               <div class="col-sm-6">
+                   <p class="inner-title"><i class="fa fa-location-arrow" aria-hidden="true"></i> Location</p>
+                   <div>{{result.location}}</div>
+               </div>
+               <div class="col-sm-6">
+                   <p class="inner-title"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Job Type</p>
+                   <div>{{result.jobType}}</div>
+               </div>
+           </div>
+           <div class="row slab">
+               <div class="col-sm-12">
+                   <p class="inner-title"><i class="fa fa-info-circle" aria-hidden="true"></i> Description</p>
+                   <div>{{result.description}}</div>
+               </div>
            </div>
 
-           <div ng-show="app.status == 'Pending'">
-               <h3> Status </h3>
-               <div class="alert alert-warning"> Pending</div>
-           </div>
-
-           <div ng-show="app.status == 'Rejected'">
-               <h3> Status </h3>
-               <div class="btn btn-rejected"> Rejected</div>
-           </div>
+           <h3> Status </h3>
+           <div><span class="{{result.status}} application-status">{{result.status}}</span></div>
 
        </li>
     </ul>
@@ -31,3 +46,20 @@
 
 
 </div>
+
+
+<nav class="navbar navbar-default navbar-fixed-bottom header">
+    <div class="container-fluid my-container-header">
+        <div class="navbar-header">
+
+
+            <div align="center">
+                <a href="#/student">
+                    Back
+                </a>
+            </div>
+
+        </div>
+    </div>
+</nav>
+

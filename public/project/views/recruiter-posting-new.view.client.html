@@ -1,36 +1,70 @@
+<div align="center"><h1>New Job Posting</h1></div>
 <div class="">
 
-    {{model.posting}}
 
-    <div class="alert alert-danger" >{{model.errorMessage}} Space</div>
 
+    <div class="alert alert-danger " ng-show="model.errorMessage" >{{model.errorMessage}}</div>
+
+
+    <div class="row">
+        <div class="col-sm-6">
     <label for="title">Job Title</label>
 
-    <input class="form-control" type="text" name="title" id="title" ng-model="model.posting.jobTitle">
+    <input placeholder="Job Title" class="form-control" type="text" name="title" id="title" ng-model="model.posting.jobTitle">
+        </div>
 
+        <div class="col-sm-6">
     <label for="company"> Company</label>
-    <input class="form-control" type="text" name="company" id="company" ng-model="model.posting.company">
-
+    <input placeholder="Company Name" class="form-control" type="text" name="company" id="company" ng-model="model.posting.company">
+    </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
     <label for="location"> Location</label>
-    <input class="form-control" type="text" name="location" id="location" ng-model="model.posting.location">
+    <input placeholder="Location" class="form-control" type="text" name="location" id="location" ng-model="model.posting.location">
+        </div>
 
+        <div class="col-sm-6">
     <label for="date"> Date of Posting</label>
-    <input class="form-control" type="text" name="date" id="date" ng-model="model.posting.date">
+    <input placeholder="Date" class="form-control" type="text" name="date" id="date" ng-model="model.posting.date">
+    </div>
+    </div>
+
 
     <label for="description"> Description</label>
-    <textarea id="description" rows="4" ng-model="model.posting.description" class="form-control"></textarea>
+    <textarea placeholder="Job Description" id="description" rows="4" ng-model="model.posting.description" class="form-control"></textarea>
 
+    <div class="row">
+        <div class="col-sm-6">
     <label for="skills">Desired Skills</label>
-    <input class="form-control" type="text" name="date" id="skills" ng-model="model.posting.skills">
+    <input placeholder="skills" class="form-control" type="text" name="date" id="skills" ng-model="model.posting.skills">
+        </div>
 
-
+        <div class="col-sm-6">
     <label for="jobtype">Job Type</label>
-    <select id =jobtype ng-model="model.posting.jobType" class="form-control">
+    <select id =jobtype ng-model="model.posting.jobType" class="form-control" ng-init="model.posting.jobType='Full-time'">
         <option value="Internship">Internship</option>
         <option value="Full-time">Full Time</option>
     </select>
-
-
-    <a href="" role="button" ng-click="model.addJob()" class="btn btn-success">Add Posting</a>
+    </div>
+    </div>
+    <a href="" role="button" ng-click="model.addJob()" class="btn btn-success btn-block">Add Posting</a>
 
 </div>
+
+
+<nav class="navbar navbar-default navbar-fixed-bottom header">
+    <div class="container-fluid my-container-header">
+        <div class="navbar-header">
+
+
+            <div align="center">
+                <a href="#/recruiter">
+                    Back
+                </a>
+            </div>
+
+        </div>
+    </div>
+</nav>
+

@@ -124,6 +124,26 @@
                     check : checkLogin
                 }
             })
+
+            .when('/admin/jobupdate/:postingId', {
+                templateUrl : "views/admin/admin-job-update.view.client.html",
+                controller : "adminJobController as model",
+                resolve : {
+                    check : checkLogin
+                }
+            })
+
+
+
+
+            .when('/recruiter/resume/:userId', {
+                templateUrl : "views/recruiter-resume-check.view.client.html",
+               controller : "recruiterResumeController as model",
+                resolve : {
+                    check : checkLogin
+                }
+            })
+
     }
     function checkLogin(userService, $q, $location, $rootScope) {
         var defered = $q.defer()

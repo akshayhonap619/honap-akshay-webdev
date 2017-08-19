@@ -1,3 +1,4 @@
+<div align="center"><h1>Login</h1></div>
 <div class="">
 
 
@@ -5,7 +6,7 @@
         {{model.errorMessage}}
     </div>
 
-    <h1>Login</h1>
+
     <label for="username">Username</label>
     <input  class = "form-control"
             type="text"
@@ -21,11 +22,7 @@
             placeholder="Password"
             id="password"/>
 
-    <label for="role">User Role</label>
-    <select ng-model="user.role" id="role" name="role" class="form-control">
-        <option value="student">Student</option>
-        <option value="recruiter">Recruiter</option>
-    </select>
+
     <a class="btn btn-block btn-primary"
        role="button"
        ng-click="model.login(user)">Login</a>
@@ -40,3 +37,18 @@
     </a>
 
 </div>
+
+<nav class="navbar navbar-default navbar-fixed-bottom header">
+    <div class="container-fluid my-container-header">
+        <div class="navbar-header">
+
+
+            <div align="center">
+                <a href="#/">
+                    Back
+                </a>
+            </div>
+
+        </div>
+    </div>
+</nav>
