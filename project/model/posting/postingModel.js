@@ -37,16 +37,13 @@ function updatePosting(userId,posting) {
 }
 
 function createPosting(userId,posting){
-   // posting.recruiter = userId;
-    //console.log(posting);
+
     return postingModel.create(posting);
 }
 
 function getPostingById(userId) {
 
 
-   // console.log(postingModel.findById({_id : userId}));
-   // console.log("p model")
     return postingModel.findById({_id : userId})
 }
 

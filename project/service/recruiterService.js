@@ -29,8 +29,7 @@ function addJob(req,res) {
     var userId = req.params.userId;
     var job = req.body;
 
-    //console.log(userId);
-   // console.log(job)
+
     postingModel.createPosting(userId,job)
         .then(function (response) {
             console.log(response);
@@ -80,8 +79,7 @@ function searchStudentPosting(req,res) {
     jobTitle = req.query.jobTitle.toLowerCase();
     company = req.query.company.toLowerCase();
     location = req.query.location.toLowerCase();
-    //description = req.query.description.toLowerCase();
-    //skill = req.query.skills.toLowerCase();
+
 
     console.log(jobTitle);
 
@@ -90,29 +88,17 @@ function searchStudentPosting(req,res) {
            var allPostings = allPostingsResponse;
             var output = [];
 
-           // console.log("HELLO".toLowerCase().includes("ell"));
+
 
             for(p in allPostings){
                 if((jobTitle.includes(allPostings[p].jobTitle.toLowerCase()) ||  allPostings[p].jobTitle.toLowerCase().includes(jobTitle))
                     || (company.includes(allPostings[p].company.toLowerCase()) ||  allPostings[p].company.toLowerCase().includes(company)))
                 {
-                  //  console.log(allPostings[p])
-                //    console.log("here")
+
                     output.push(allPostings[p]);
                 }
             }
-            //console.log("ap");
-            //console.log(allPostings)
-      /*      for(p in allPostings){
-              //  console.log("in loop 2")
-                if((skill.includes(allPostings[p].skills.toLowerCase()) ||  allPostings[p].skills.toLowerCase().includes(skill))
-                    || (description.includes(allPostings[p].description.toLowerCase()) ||  allPostings[p].description.toLowerCase().includes(description)))
-                {
-                    output.push(allPostings[p]);
-                }
-            }
-      */      //console.log("out of 2");
-            //console.log("Before sending output")
+
             console.log(output);
 
             res.send(output);
@@ -124,8 +110,7 @@ function applyForJob(req,res) {
     var postingId = req.params.postingId;
     var userId = req.params.userId;
 
-    //console.log(postingId);
-    //console.log(userId);
+
 
     postingModel.addApplicant(postingId,userId)
         .then(function (response) {
@@ -138,7 +123,7 @@ function applyForJob(req,res) {
 function getPostingById(req, res) {
     var postingId = req.params.postingId;
 
-   // console.log("p id is "+postingId)
+
 
     postingModel.getPostingById(postingId)
         .then(function (response) {
@@ -180,7 +165,7 @@ function    getApplicationsForStudent(req,res) {
     postingModel.getallPostings()
         .then(function (postings) {
             var result = [];
-            //console.log(postings)
+
             for(p in postings){
                 var applicants = postings[p].applicants;
                 //console.log(applicants);
@@ -201,7 +186,7 @@ function    getApplicationsForStudent(req,res) {
                         post.status = status;
                         console.log(post);
                         result.push(post);
-                        break; //questionable
+                        break; 
                     }
                 }
 

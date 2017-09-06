@@ -106,9 +106,6 @@ function getUserByUsernamePass(req, res) {
     var password = req.query.password;
     var role= req.query.role;
 
-   /* console.log(username);
-    console.log(password);
-    console.log(role);*/
 
     res.send("user recieved");
 }
@@ -125,8 +122,7 @@ function findUserById(req, res) {
 function findUser(req, res) {
     var result=null;
     var username = req.params.username;
-   // var password = req.query.password;
-   // var role = req.query.role;
+
     console.log("Password is "+username);
 
 
@@ -145,30 +141,7 @@ function findUser(req, res) {
             //res.send("Only username");
 
 
-   /* else
-    {
 
-        /!*userModel.findUserByUsernamePassword(username,password)
-            .then(function (user) {
-                if(user!=null) {
-                    res.send(user)
-                }
-                else {
-                    res.send(404);
-                }
-            });*!/
-
-        userModel.getUserByCredentials(username,password,role)
-            .then(function (response) {
-                if(response != null){
-                    res.send(response);
-                }
-                else{
-                    res.sendStatus(404);
-                }
-
-            })
-    }*/
 
 
 
@@ -178,7 +151,7 @@ function createUser(req , res) {
 
     var newUser = req.body;
 
-   // console.log(newUser);
+
 
     userModel.createUser(newUser)
         .then(function (user) {
@@ -188,15 +161,6 @@ function createUser(req , res) {
             res.send(404);
         })
 
-    /*userModel.createUser(newUser)
-        .then(function (user) {
-            console.log("babu user is "+user);
-            res.send(user._id);
-*/
-           // res.send(200);
-       // });
-
-    //users.push(newUser);
 
 }
 
@@ -204,8 +168,7 @@ function updateUser(req, res) {
     var userId = req.params.userId;
     var user = req.body;
 
-   // console.log(userId)
-   // console.log(req.body);
+
 
    userModel.updateUser(userId,user)
         .then(function (status) {
@@ -224,30 +187,10 @@ function deleteUser(req,res) {
             console.log("returned");
             res.sendStatus(200);
         });
-   //res.send("deleted user");
-}
-
-
-/*
-function findUserByUsernameOnly(username) {
-    for(u in users){
-        if(users[u].username == username){
-            return users[u];
-        }
-    }
-    return null;
-}
-
-function findUserByUsernamePassword(username, password) {
-
-    userModel.findUserByUsernamePassword(username,password)
-        .then(function (user) {
-
-        });
-
 
 }
-*/
+
+
 
 function serializeUser(user, done) {
     done(null, user);
