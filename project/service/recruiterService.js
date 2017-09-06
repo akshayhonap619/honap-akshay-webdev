@@ -43,8 +43,7 @@ function updateJob(req,res) {
     var userId = req.params.userId;
     var job = req.body;
 
-    //console.log(userId);
-    //console.log(job)
+
     postingModel.updatePosting(userId,job)
         .then(function (response) {
          //   console.log(response);
@@ -52,15 +51,6 @@ function updateJob(req,res) {
         });
 }
 
-
-/*function getPosting(req, res) {
-     var userId = req.params.userId;
-     postingModel.getPosting(userId)
-         .then(function (response) {
-             console.log(response);
-             res.send(response);
-         })
-}*/
 
 function getPostingsForRecruiter(req,res) {
     var userId = req.params.userId;
@@ -216,8 +206,7 @@ function    getApplicationsForStudent(req,res) {
                 }
 
             }
-           // console.log("result is")
-            //console.log(result[0]);
+
             res.send(result);
         })
 

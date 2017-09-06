@@ -91,14 +91,16 @@ h2.my-work{
 }
 
 .my-img{
-    width: 50px;
-    height: 50px;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
 }
+
 .panel {
     border: 1px solid #f4511e;
     border-radius:0 !important;
     transition: box-shadow 0.5s;
-    height:360px;
+    height:550px;
 }
 .panel:hover {
     box-shadow: 5px 0px 40px rgba(0,0,0, .2);
