@@ -90,10 +90,16 @@ h2.my-work{
     font-style: normal;
 }
 
-.my-img{
+.my-img2{
     border-radius: 50%;
     width: 200px;
     height: 200px;
+}
+
+.my-img{
+    border-radius: 50%;
+    width:100px;
+    height: 100px;
 }
 
 .panel {

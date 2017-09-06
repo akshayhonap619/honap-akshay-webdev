@@ -186,7 +186,7 @@ function    getApplicationsForStudent(req,res) {
                         post.status = status;
                         console.log(post);
                         result.push(post);
-                        break; 
+                        break;
                     }
                 }
 
